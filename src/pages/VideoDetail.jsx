@@ -2,11 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
+import Channel from "../components/main/Channel";
 import Description from "../components/main/Description";
 import RelatedVideoCard from "../components/main/RelatedVideoCard";
 
 export default function Detail() {
-  const [isZero, setIsZero] = useState(false);
   const [show, setShow] = useState(false);
   const {
     state: { video },
@@ -29,14 +29,12 @@ export default function Detail() {
     setShow((prev) => !prev);
   };
 
+  // 새 비디오디테일 페이지로 이동했을때 show state를 초기화한다.
   useEffect(() => {
     setShow(false);
-    console.log(description);
-    if (description) setIsZero(true);
-    else setIsZero(false);
+    console.log(video);
   }, [video]);
 
-  let a = false;
   return (
     <div className="flex">
       <section className="basis-9/12 px-2">
@@ -51,16 +49,9 @@ export default function Detail() {
         ></iframe>
         <div>
           <div className="text-xl font-semibold my-4">{title}</div>
-          <div className="flex items-center my-2">
-            <img
-              className="w-10 h-10 rounded-full mr-2"
-              src={channelThumbnails && channelThumbnails.medium.url}
-              alt={channelTitle}
-            />
-            <div className="font-semibold">{channelTitle}</div>
-          </div>
+          <Channel channelId={channelId} />
 
-          {isZero && (
+          {description && (
             <Description
               description={description}
               show={show}

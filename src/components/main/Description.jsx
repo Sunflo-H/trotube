@@ -24,7 +24,6 @@ export default function Description({ description, show, handleClick }) {
           </pre>
         </div>
       )}
-      ;
     </>
   );
 }
