@@ -34,7 +34,7 @@ export default function SearchHeader() {
         onSubmit={handleSubmit}
       >
         <input
-          className="w-full w-8/12 px-4 border outline-none rounded-l-full"
+          className="w-full w-8/12 px-6 border outline-none rounded-l-full"
           type="text"
           placeholder="Search..."
           value={text}
