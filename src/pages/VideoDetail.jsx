@@ -12,17 +12,23 @@ export default function Detail() {
     state: { video },
   } = useLocation();
 
-  const { categoryId, channelId, channelTitle, description, title } =
-    video.snippet;
+  /**
+   * 비디오의 아이디를 받아 실제 비디오를 받아와 조회수 정보를 추가한 받아오는 코드
+   */
+  //  'https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=Ks-_Mh1QhMc&key=[YOUR_API_KEY]' \
 
-  const { data: videos } = useQuery({
-    queryKey: ["related", video.id],
-    queryFn: getRelatedVideos,
+  const { data: realVideos } = useQuery({
+    queryKey: ["realVideos", video.id],
+    queryFn: getRealVideos,
   });
 
-  const { data: channelThumbnails } = useQuery({
-    queryKey: ["channel", channelId],
-    queryFn: getChannel,
+  // console.log(realVideos);
+
+  const { channelId, description, title } = video.snippet;
+
+  const { data: relatedVideos } = useQuery({
+    queryKey: ["related", video.id],
+    queryFn: getRelatedVideos,
   });
 
   const handleClick = () => {
@@ -32,7 +38,6 @@ export default function Detail() {
   // 새 비디오디테일 페이지로 이동했을때 show state를 초기화한다.
   useEffect(() => {
     setShow(false);
-    console.log(video);
   }, [video]);
 
   return (
@@ -43,7 +48,7 @@ export default function Detail() {
           type="text/html"
           width="100%"
           height="640"
-          src={`http://www.youtube.com/embed/${video.id}`}
+          src={`https://www.youtube.com/embed/${video.id}`}
           frameBorder="0"
           title={title}
         ></iframe>
@@ -64,9 +69,9 @@ export default function Detail() {
         </div>
       </section>
       <section className="basis-3/12 px-2">
-        {videos && (
+        {relatedVideos && (
           <ul>
-            {videos.items.map((video) => (
+            {relatedVideos.items.map((video) => (
               <RelatedVideoCard video={video} key={video.id} />
             ))}
           </ul>
@@ -82,7 +87,6 @@ const getRelatedVideos = async ({ queryKey }) => {
   const { data } = await axios.get(url);
 
   // item의 형식을 일치시키는 코드
-  //   let items = data.items;
   data.items.map((item) => {
     item.id = item.id.videoId;
     return item;
@@ -93,10 +97,8 @@ const getRelatedVideos = async ({ queryKey }) => {
   return result;
 };
 
-const getChannel = async ({ queryKey }) => {
-  const url = `/data/channel.json`;
-
+const getRealVideos = async ({ queryKey }) => {
+  const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${queryKey[1]}&key=AIzaSyAfJbBrbKb1uxENbxnJrrJQLFwKBAfG744`;
   const { data } = await axios.get(url);
-
-  return data.items[0].snippet.thumbnails;
+  return data;
 };
