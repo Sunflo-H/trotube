@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
 import { useLocation, useParams } from "react-router-dom";
-import VideoCard from "../components/main/VideoCard";
+import RelatedVideoCard from "../components/main/RelatedVideoCard";
 
 export default function Detail() {
   const {
@@ -21,12 +21,12 @@ export default function Detail() {
     queryKey: ["channel", channelId],
     queryFn: getChannel,
   });
-  console.log(videos);
+  // console.log(videos);
   console.log(channelThumbnails);
   // const { thumbnails } = channel.snippet;
   return (
     <div className="flex">
-      <section className="basis-4/6">
+      <section className="basis-9/12 px-2">
         <iframe
           id="player"
           type="text/html"
@@ -37,23 +37,26 @@ export default function Detail() {
           // title={title}
         ></iframe>
         <div>
-          <div className="text-xl font-semibold">{title}</div>
+          <div className="text-xl font-semibold my-4">{title}</div>
           <div className="flex items-center my-2">
             <img
               className="w-10 h-10 rounded-full mr-2"
-              src={channelThumbnails.medium.url}
+              src={channelThumbnails && channelThumbnails.medium.url}
               alt={channelTitle}
             />
-            <div>{channelTitle}</div>
+            <div className="font-semibold">{channelTitle}</div>
           </div>
-          <pre className="whitespace-pre-wrap">{description}</pre>
+          {/* 클릭하기 전이면 이거 */}
+          <pre className="text-sm whitespace-pre-wrap bg-gray-100 px-4 py-3 rounded-2xl h-24 overflow-hidden">
+            {description}
+          </pre>
         </div>
       </section>
-      <section className="basis-2/6">
+      <section className="basis-3/12 px-2">
         {videos && (
           <ul>
             {videos.items.map((video) => (
-              <VideoCard video={video} key={video.id} />
+              <RelatedVideoCard video={video} key={video.id} />
             ))}
           </ul>
         )}

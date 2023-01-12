@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 
 import { BsSearch, BsYoutube } from "react-icons/bs";
 import Setting from "./Setting";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 export default function SearchHeader() {
   const navigate = useNavigate();
-
+  const { keyword } = useParams();
   const [text, setText] = useState("");
 
   const handleSubmit = (e) => {
@@ -19,15 +19,15 @@ export default function SearchHeader() {
     setText(e.target.value);
   };
 
-  // useEffect(() => {
-  //   console.log(text);
-  // }, [text]);
+  useEffect(() => {
+    setText(keyword || "");
+  }, [keyword]);
 
   return (
     <div className="flex  items-center p-4 ">
       <Link className="flex items-center cursor-pointer" to="/">
         <BsYoutube className="text-youtube-red text-3xl mr-1 mt-1" />
-        <div className="text-2xl">Youtube</div>
+        <div className="text-2xl font-bold">Youtube</div>
       </Link>
       <form
         className="flex justify-center w-full p-2  "
@@ -40,7 +40,7 @@ export default function SearchHeader() {
           value={text}
           onChange={handleChange}
         />
-        <button className="border border-l-0 p-4 px-6 rounded-r-full">
+        <button className="border border-l-0 p-4 px-6 rounded-r-full bg-gray-100 hover:bg-gray-200">
           <BsSearch className="text-lg" />
         </button>
       </form>
