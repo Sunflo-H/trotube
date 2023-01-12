@@ -26,9 +26,11 @@ import SearchHeader from "./components/header/SearchHeader";
 
 function App() {
   const queryClient = new QueryClient();
+  localStorage.setItem("name", "hbj");
   return (
     <>
       <SearchHeader />
+      <div>{localStorage.getItem("name")}</div>
       <QueryClientProvider client={queryClient}>
         <Outlet />
       </QueryClientProvider>
