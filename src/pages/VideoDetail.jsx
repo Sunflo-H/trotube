@@ -1,10 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
+import Description from "../components/main/Description";
 import RelatedVideoCard from "../components/main/RelatedVideoCard";
 
 export default function Detail() {
+  const [isZero, setIsZero] = useState(false);
+  const [show, setShow] = useState(false);
   const {
     state: { video },
   } = useLocation();
@@ -21,9 +24,19 @@ export default function Detail() {
     queryKey: ["channel", channelId],
     queryFn: getChannel,
   });
-  // console.log(videos);
-  console.log(channelThumbnails);
-  // const { thumbnails } = channel.snippet;
+
+  const handleClick = () => {
+    setShow((prev) => !prev);
+  };
+
+  useEffect(() => {
+    setShow(false);
+    console.log(description);
+    if (description) setIsZero(true);
+    else setIsZero(false);
+  }, [video]);
+
+  let a = false;
   return (
     <div className="flex">
       <section className="basis-9/12 px-2">
@@ -34,7 +47,7 @@ export default function Detail() {
           height="640"
           src={`http://www.youtube.com/embed/${video.id}`}
           frameBorder="0"
-          // title={title}
+          title={title}
         ></iframe>
         <div>
           <div className="text-xl font-semibold my-4">{title}</div>
@@ -46,10 +59,17 @@ export default function Detail() {
             />
             <div className="font-semibold">{channelTitle}</div>
           </div>
-          {/* 클릭하기 전이면 이거 */}
-          <pre className="text-sm whitespace-pre-wrap bg-gray-100 px-4 py-3 rounded-2xl h-24 overflow-hidden">
-            {description}
-          </pre>
+
+          {isZero && (
+            <Description
+              description={description}
+              show={show}
+              handleClick={handleClick}
+            />
+            // description 말고도 위에 조회수, 시간 입력해
+            // 그렇게하면 description이 없어도 조회수, 시간으로 show more 할 수 있다.
+            // 참고 동영상 제목 : '새를 본 고양이 울음소리'
+          )}
         </div>
       </section>
       <section className="basis-3/12 px-2">

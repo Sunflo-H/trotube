@@ -20,7 +20,7 @@ import SearchHeader from "./components/header/SearchHeader";
  * - 디테일페이지
  *    - 비디오 재생
  *    - 채널 정보 (아이콘 : 채널 정보 요청)
- *      - description은 자세히, 간략히
+ *      - description은 자세히, 간략히 -> 간략히를 누르면 스크롤이 맨위로
  *    - 연관비디오 리스트
  */
 
