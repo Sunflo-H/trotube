@@ -41,7 +41,7 @@ export default function Detail() {
   }, [video]);
 
   return (
-    <div className="flex">
+    <div className="flex flex-col lg:flex-row">
       <section className="basis-9/12 px-2">
         <iframe
           id="player"

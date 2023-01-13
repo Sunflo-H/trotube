@@ -6,12 +6,11 @@ export default function Description({ description, show, handleClick }) {
       {show ? (
         <pre className="text-sm whitespace-pre-wrap bg-gray-100 px-4 py-3 rounded-2xl">
           {description}
-          <p
-            className="mt-10 font-semibold cursor-pointer"
-            onClick={handleClick}
-          >
-            show less
-          </p>
+          <div className="mt-10 font-semibold">
+            <span className=" cursor-pointer" onClick={handleClick}>
+              show less
+            </span>
+          </div>
         </pre>
       ) : (
         <div
