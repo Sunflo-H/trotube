@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
 import { useParams } from "react-router-dom";
-import VideoCard from "../components/main/VideoCard";
+import VideoCard from "./VideoCard";
 
 export default function Videos() {
   const { keyword } = useParams();
@@ -13,17 +13,17 @@ export default function Videos() {
 
   console.log("최종 데이터", videos);
 
-  //   console.log(items);
-
   return (
-    <div>
-      {videos && (
-        <ul className="grid gap-2 grid-cols-1 m-4 md:grid-cols-2  lg:grid-cols-3  xl:grid-cols-4 2xl:grid-cols-5 ">
-          {videos.items.map((video) => (
-            <VideoCard video={video} key={video.id} />
-          ))}
-        </ul>
-      )}
+    <div className="flex justify-center">
+      <div className="">
+        {videos && (
+          <ul className="grid gap-2 max-w-screen-2xl grid-cols-1 m-4 md:grid-cols-2  lg:grid-cols-3  xl:grid-cols-4 2xl:grid-cols-5 ">
+            {videos.items.map((video) => (
+              <VideoCard video={video} key={video.id} />
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }
@@ -34,7 +34,7 @@ const queryFn = async ({ queryKey }) => {
   const { data } = await axios.get(url);
 
   // item의 형식을 일치시키는 코드
-  //   let items = data.items;
+  // let items = data.items;
   data.items.map((item) => {
     if (queryKey[1]) item.id = item.id.videoId;
     return item;

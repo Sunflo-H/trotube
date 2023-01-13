@@ -30,7 +30,7 @@ function App() {
   return (
     <>
       <SearchHeader />
-      <div>{localStorage.getItem("name")}</div>
+      {/* <div>{localStorage.getItem("name")}</div> */}
       <QueryClientProvider client={queryClient}>
         <Outlet />
       </QueryClientProvider>

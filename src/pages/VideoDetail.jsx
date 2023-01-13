@@ -6,7 +6,7 @@ import Channel from "../components/main/Channel";
 import Description from "../components/main/Description";
 import RelatedVideoCard from "../components/main/RelatedVideoCard";
 
-export default function Detail() {
+export default function VideoDetail() {
   const [show, setShow] = useState(false);
   const {
     state: { video },
@@ -41,42 +41,44 @@ export default function Detail() {
   }, [video]);
 
   return (
-    <div className="flex flex-col lg:flex-row">
-      <section className="basis-9/12 px-2">
-        <iframe
-          id="player"
-          type="text/html"
-          width="100%"
-          height="640"
-          src={`https://www.youtube.com/embed/${video.id}`}
-          frameBorder="0"
-          title={title}
-        ></iframe>
-        <div>
-          <div className="text-xl font-semibold my-4">{title}</div>
-          <Channel channelId={channelId} />
+    <div className="flex justify-center ">
+      <div className="flex flex-col lg:flex-row max-w-screen-2xl ">
+        <section className="basis-9/12 px-2">
+          <iframe
+            id="player"
+            type="text/html"
+            width="100%"
+            height="640"
+            src={`https://www.youtube.com/embed/${video.id}`}
+            frameBorder="0"
+            title={title}
+          ></iframe>
+          <div>
+            <div className="text-xl font-semibold my-4">{title}</div>
+            <Channel channelId={channelId} />
 
-          {description && (
-            <Description
-              description={description}
-              show={show}
-              handleClick={handleClick}
-            />
-            // description 말고도 위에 조회수, 시간 입력해
-            // 그렇게하면 description이 없어도 조회수, 시간으로 show more 할 수 있다.
-            // 참고 동영상 제목 : '새를 본 고양이 울음소리'
+            {description && (
+              <Description
+                description={description}
+                show={show}
+                handleClick={handleClick}
+              />
+              // description 말고도 위에 조회수, 시간 입력해
+              // 그렇게하면 description이 없어도 조회수, 시간으로 show more 할 수 있다.
+              // 참고 동영상 제목 : '새를 본 고양이 울음소리'
+            )}
+          </div>
+        </section>
+        <section className="basis-3/12 px-2">
+          {relatedVideos && (
+            <ul>
+              {relatedVideos.items.map((video) => (
+                <RelatedVideoCard video={video} key={video.id} />
+              ))}
+            </ul>
           )}
-        </div>
-      </section>
-      <section className="basis-3/12 px-2">
-        {relatedVideos && (
-          <ul>
-            {relatedVideos.items.map((video) => (
-              <RelatedVideoCard video={video} key={video.id} />
-            ))}
-          </ul>
-        )}
-      </section>
+        </section>
+      </div>
     </div>
   );
 }

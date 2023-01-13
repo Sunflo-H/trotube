@@ -4,8 +4,9 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Videos from "./pages/Videos";
-import Detail from "./pages/VideoDetail";
+
+import Main from "./pages/Main";
+import VideoDetail from "./pages/VideoDetail";
 
 const router = createBrowserRouter([
   {
@@ -14,19 +15,19 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Videos />,
+        element: <Main />,
       },
       {
         path: "/videos",
-        element: <Videos />,
+        element: <Main />,
       },
       {
         path: "/videos/:keyword",
-        element: <Videos />,
+        element: <Main />,
       },
       {
         path: "/videos/watch/:videoId",
-        element: <Detail />,
+        element: <VideoDetail />,
       },
     ],
   },
