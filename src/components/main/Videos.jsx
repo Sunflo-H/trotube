@@ -4,7 +4,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import VideoCard from "./VideoCard";
 
-export default function Videos() {
+export default function Videos({ children }) {
   const { keyword } = useParams();
   const { data: videos } = useQuery({
     queryKey: ["videos", keyword],
@@ -14,7 +14,8 @@ export default function Videos() {
   console.log("최종 데이터", videos);
 
   return (
-    <div className="flex justify-center">
+    <div>
+      {children}
       <div className="">
         {videos && (
           <ul className="grid gap-2 max-w-screen-2xl grid-cols-1 m-4 md:grid-cols-2  lg:grid-cols-3  xl:grid-cols-4 2xl:grid-cols-5 ">

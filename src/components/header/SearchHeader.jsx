@@ -23,10 +23,10 @@ export default function SearchHeader() {
   }, [keyword]);
 
   return (
-    <div className=" flex items-center py-8 ">
+    <div className=" flex items-center py-8 px-4 ">
       <BsList className="text-3xl cursor-pointer " />
       <Link className="flex items-center cursor-pointer ml-4 z-10" to="/">
-        {/* <BsYoutube className="text-youtube-red text-3xl mr-1 mt-1" /> */}
+        <BsYoutube className="text-youtube-red text-3xl mr-1 mt-1" />
         <div className="flex text-2xl text-white font-bold bg-gradient-basic rounded-xl p-1">
           <div className="">Tro</div>
           <div className="">tube</div>

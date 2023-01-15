@@ -15,6 +15,10 @@ module.exports = {
           main1: "#f502c5",
           main2: "#531d96",
         },
+        dribble: {
+          bg: "#ECE4EC",
+          pink: "#ffe6eb",
+        },
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(#5244cc,#5a13bb)",
