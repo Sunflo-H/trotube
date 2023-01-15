@@ -1,53 +1,29 @@
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import React from "react";
-import Category from "../components/main/Category";
-import MainCard from "../components/main/MainCard";
-import MainVideos from "../components/main/MainVideos";
-import MemberCard from "../components/main/MemberCard";
-import Member from "../components/main/MemberCard";
+import React, { useState } from "react";
+import Category from "../components/main/category/Category";
+import Top7 from "../components/main/Top7";
 import Videos from "../components/main/Videos";
 
 export default function Main() {
-  const { data: members } = useQuery({ queryKey: [], queryFn: getMember });
+  const [category, setCategory] = useState(categoryList[0].title);
 
   return (
-    // 그리드
-    // <div className="relative w-full max-w-screen-2xl grid grid-cols-8 gap-4  m-auto items-center bg-red-500">
-    // 뮤직
     <div className="relative   w-full h-full    ">
-      <Category />
+      {/* 카테고리가 바뀌었을때 페이지 변경은 아니야 */}
+      <Category category={category} setCategory={setCategory} />
 
-      {/* Smart TV UI */}
-      {/* {mrtrot_s1.map((item) => (
-        <MainCard item={item} />
-      ))} */}
-
-      {/* Music Player List UI */}
-      {/* <div className="text-4xl font-bold  ">Top 7</div> */}
-      {members && (
-        <ul className="w-full h-4/5 p-10 m-auto bg-red-500">
-          {members.map((member, index) => (
-            <MemberCard member={member} key={index} index={index} />
-          ))}
-        </ul>
+      {/* 카테고리에 따라서 아이템을 보여줄거야 */}
+      {category === categoryList[0].title ? (
+        <Top7 />
+      ) : (
+        <Videos category={category} />
       )}
     </div>
   );
 }
 
-const size = { sm: "col-span-2", md: "col-span-3", lg: "col-span-5" };
-
-const mrtrot_s1 = [
-  { title: "Top 7", size: size.lg },
-  { title: "결승전", size: size.md },
-  { title: "준결승전", size: size.sm },
-  { title: "본선 3차전", size: size.sm },
-  { title: "본선 2차전", size: size.sm },
-  { title: "본선 1차전", size: size.sm },
+const categoryList = [
+  { title: "Top 7" },
+  { title: "결승" },
+  { title: "준결승" },
+  { title: "본선" },
 ];
-
-async function getMember({ queryKey }) {
-  const { data } = await axios.get("/data/mrtrot1/member.json");
-  return data;
-}

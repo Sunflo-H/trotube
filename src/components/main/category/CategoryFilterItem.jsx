@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export default function CategoryItem({ title, category, setCategory }) {
+export default function CategoryFilterItem({ title, category, setCategory }) {
   const handleClick = () => {
     setCategory(title);
   };

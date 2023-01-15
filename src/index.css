@@ -15,7 +15,7 @@ body {
   /* @apply flex w-full  justify-center; */
 
   /* Music Player List UI */
-  @apply flex w-full h-full justify-center;
+  @apply flex w-full h-full justify-center bg-dribble-bg bg-black;
   -ms-overflow-style: none;
 }
 

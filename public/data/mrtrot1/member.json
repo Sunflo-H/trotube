@@ -6,7 +6,8 @@
         "제목": "사랑은 늘 도망가",
         "videoId": "pBEAzM2TRmE"
       }
-    ]
+    ],
+    "color": "bg-dribble-red"
   },
   {
     "singer": "영탁",
@@ -15,7 +16,8 @@
         "제목": "사랑은 늘 도망가",
         "videoId": "pBEAzM2TRmE"
       }
-    ]
+    ],
+    "color": "bg-orange-200"
   },
   {
     "singer": "이찬원",
@@ -24,7 +26,8 @@
         "제목": "사랑은 늘 도망가",
         "videoId": "pBEAzM2TRmE"
       }
-    ]
+    ],
+    "color": "bg-yello-900"
   },
   {
     "singer": "김호중",
@@ -33,7 +36,8 @@
         "제목": "사랑은 늘 도망가",
         "videoId": "pBEAzM2TRmE"
       }
-    ]
+    ],
+    "color": "bg-green-200"
   },
   {
     "singer": "정동원",
@@ -42,7 +46,8 @@
         "제목": "사랑은 늘 도망가",
         "videoId": "pBEAzM2TRmE"
       }
-    ]
+    ],
+    "color": "bg-blue-200"
   },
   {
     "singer": "장민호",
@@ -51,7 +56,8 @@
         "제목": "사랑은 늘 도망가",
         "videoId": "pBEAzM2TRmE"
       }
-    ]
+    ],
+    "color": "bg-indigo-200"
   },
   {
     "singer": "김희재",
@@ -60,6 +66,7 @@
         "제목": "사랑은 늘 도망가",
         "videoId": "pBEAzM2TRmE"
       }
-    ]
+    ],
+    "color": "bg-purple-200"
   }
 ]

@@ -16,8 +16,10 @@ module.exports = {
           main2: "#531d96",
         },
         dribble: {
-          bg: "#ECE4EC",
+          // bg: "#ECE4EC",
+          bg: "#ebf5fc",
           pink: "#ffe6eb",
+          red: "#fc9b91",
         },
       },
       backgroundImage: {
@@ -25,6 +27,11 @@ module.exports = {
         "gradient-half": "linear-gradient(80deg, #5244cc 50%, #5a13bb 50%);",
         "gradient-basic": "linear-gradient(to right, #5244cc , #5a13bb );",
         "gradient-br": "linear-gradient(to bottom right, #5244cc , #f502c5 );",
+      },
+      boxShadow: {
+        "3xl": "0 35px 60px -15px rgba(0, 0, 0, 0.3)",
+        // test: "-1px -1px 1px 1px #000000, 1px 1px 1px 1px black",
+        test: " -2px -2px 5px rgba(255, 255, 255, 1),3px 3px 5px rgba(0, 0, 0, 0.1)",
       },
     },
   },
