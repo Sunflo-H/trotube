@@ -3,7 +3,6 @@ import CategoryFilterItem from "./CategoryFilterItem";
 
 export default function Category({ category, setCategory }) {
   const [categories, setCategories] = useState(categoryList);
-  // const [category, setCategory] = useState(categoryList[0].title);
 
   return (
     <ul className="flex mb-4 w-full">

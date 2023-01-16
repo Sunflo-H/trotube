@@ -15,7 +15,7 @@ body {
   /* @apply flex w-full  justify-center; */
 
   /* Music Player List UI */
-  @apply flex w-full h-full justify-center bg-dribble-bg bg-black;
+  @apply flex w-full h-full justify-center;
   -ms-overflow-style: none;
 }
 
@@ -24,7 +24,8 @@ body {
 }
 
 #root {
-  @apply flex flex-col w-full max-w-screen-md h-full;
+  /* @apply flex flex-col w-full max-w-screen-md h-full; */
+  @apply flex flex-col w-full h-full max-w-screen-2xl;
 }
 
 code {

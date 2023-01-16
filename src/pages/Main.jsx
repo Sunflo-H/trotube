@@ -7,7 +7,7 @@ export default function Main() {
   const [category, setCategory] = useState(categoryList[0].title);
 
   return (
-    <div className="relative   w-full h-full    ">
+    <div className="relative w-full h-full  ">
       {/* 카테고리가 바뀌었을때 페이지 변경은 아니야 */}
       <Category category={category} setCategory={setCategory} />
 

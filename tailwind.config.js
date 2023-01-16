@@ -2,6 +2,9 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx}"],
   theme: {
+    minWidth: {
+      36: "width:9rem",
+    },
     extend: {
       colors: {
         youtube: {
