@@ -10,13 +10,15 @@ export default function Top7() {
   });
 
   let color = [
-    "bg-red-300",
+    "bg-slate-400",
+    // "bg-rose-300",
     "bg-orange-300",
     "bg-pink-300",
     "bg-indigo-300",
     "bg-sky-300",
-    "bg-emerald-300",
-    "bg-amber-200",
+    "bg-teal-200",
+    // "bg-amber-100",
+    "bg-green-300",
   ];
 
   return (
@@ -29,6 +31,89 @@ export default function Top7() {
         </ul>
       )} */}
       <p className="text-2xl font-bold w-5/6 m-auto mb-4">Top 7</p>
+      {/* 임영웅 */}
+      <ul className="flex flex-col xl:grid grid-cols-c7 grid-rows-c2 gap-1 w-4/5 border p-4 shadow-2xl m-auto">
+        <li
+          className={`영 h-92 ${color[0]} cursor-pointer hover:scale-110 duration-300`}
+        >
+          <img
+            className="h-full m-auto  "
+            src={`/img/${data[0].singer}.png`}
+            alt={data[0].singer}
+          />
+        </li>
+
+        {/* 영탁 */}
+        <li
+          className={`탁 ${color[1]} cursor-pointer hover:scale-110 duration-300`}
+        >
+          <img
+            className="h-full m-auto"
+            src={`/img/${data[1].singer}.png`}
+            alt={data[1].singer}
+          />
+        </li>
+
+        {/* 이찬원 */}
+        <li
+          className={`찬 ${color[2]} cursor-pointer hover:scale-110 duration-300`}
+        >
+          <img
+            className="h-full m-auto"
+            src={`/img/${data[2].singer}.png`}
+            alt={data[2].singer}
+          />
+        </li>
+
+        {/* 김호중 */}
+        <li
+          className={`호  ${color[3]} cursor-pointer hover:scale-110 duration-300`}
+        >
+          <img
+            className="h-full m-auto"
+            src={`/img/${data[3].singer}.png`}
+            alt={data[3].singer}
+          />
+        </li>
+
+        {/* 정동원 */}
+        <li
+          className={`동  ${color[4]} cursor-pointer hover:scale-110 duration-300`}
+        >
+          <img
+            className="h-full m-auto"
+            src={`/img/${data[4].singer}.png`}
+            alt={data[4].singer}
+          />
+        </li>
+
+        {/* 장민호 */}
+        <li
+          className={`민 ${color[5]} cursor-pointer overflow-hidden hover:scale-110 duration-300`}
+        >
+          <img
+            className="w-full object-contain m-auto mt-2 "
+            src={`/img/${data[5].singer}.png`}
+            alt={data[5].singer}
+          />
+        </li>
+
+        {/* 김희재 */}
+        <li
+          className={`희  ${color[6]} cursor-pointer overflow-hidden hover:scale-110 duration-300`}
+        >
+          <img
+            className=" h-full object-cover mt-2 "
+            src={`/img/${data[6].singer}.png`}
+            alt={data[6].singer}
+          />
+        </li>
+      </ul>
+      <div className="h-80"> </div>
+      <div className="h-80"> </div>
+      <div className="h-80"> </div>
+      <div className="h-80"> </div>
+
       {/* 임영웅 */}
       <ul className="w-4/5 grid grid-cols-8 gap-2 m-auto border p-4 box shadow-2xl">
         <li

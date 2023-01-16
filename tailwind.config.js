@@ -36,6 +36,12 @@ module.exports = {
         // test: "-1px -1px 1px 1px #000000, 1px 1px 1px 1px black",
         test: " -2px -2px 5px rgba(255, 255, 255, 1),3px 3px 5px rgba(0, 0, 0, 0.1)",
       },
+      gridTemplateColumns: {
+        c7: "repeat(7, minmax(100px, 200px))",
+      },
+      gridTemplateRows: {
+        c2: "repeat(2, minmax(100px, 200px))",
+      },
     },
   },
   plugins: [require("@tailwindcss/line-clamp")],
