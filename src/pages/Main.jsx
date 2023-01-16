@@ -9,7 +9,7 @@ export default function Main() {
   return (
     <div className="relative w-full h-full  ">
       {/* 카테고리가 바뀌었을때 페이지 변경은 아니야 */}
-      <Category category={category} setCategory={setCategory} />
+      {/* <Category category={category} setCategory={setCategory} /> */}
 
       {/* 카테고리에 따라서 아이템을 보여줄거야 */}
       {category === categoryList[0].title ? (
