@@ -29,12 +29,12 @@ export default function Top7() {
   };
 
   return (
-    <div className="">
+    <div className="bg-blue-500 h-full">
       {/* <p className="text-2xl font-bold mb-4 px-4">Top 7</p> */}
       {members && (
-        <ul className="flex flex-col border lg:grid grid-cols-c8 grid-rows-c2 gap-2 p-4 shadow-2xl  m-auto">
+        <ul className="flex flex-col border  h-3/5  lg:grid grid-cols-c8 grid-rows-c2 gap-2 p-4 shadow-2xl  m-auto">
           <li
-            className={`영 h-92  cursor-pointer hover:scale-105 duration-300`}
+            className={`영 cursor-pointer hover:scale-105 duration-300`}
             onClick={handleClick}
           >
             <img

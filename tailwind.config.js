@@ -25,6 +25,14 @@ module.exports = {
           red: "#fc9b91",
         },
       },
+      height: {
+        400: "400px",
+        500: "500px",
+      },
+      maxHeight: {
+        200: "200px",
+        400: "400px",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(#5244cc,#5a13bb)",
         "gradient-half": "linear-gradient(80deg, #5244cc 50%, #5a13bb 50%);",
@@ -41,7 +49,7 @@ module.exports = {
         c8: "repeat(8, minmax(100px, 200px))",
       },
       gridTemplateRows: {
-        c2: "repeat(2, minmax(100px, 200px))",
+        c2: "repeat(2, minmax(100px, auto))",
       },
     },
   },

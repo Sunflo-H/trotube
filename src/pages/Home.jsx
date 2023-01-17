@@ -17,7 +17,7 @@ export default function Home() {
   ];
 
   return (
-    <div className=" relative w-full h-full px-4 ">
+    <div className=" relative w-full h-full px-4 bg-red-500">
       {/* 카테고리가 바뀌었을때 페이지 변경은 아니야 */}
       {/* <Category category={category} setCategory={setCategory} /> */}
       {/* 카테고리에 따라서 아이템을 보여줄거야 */}
@@ -32,11 +32,11 @@ export default function Home() {
         <VideosByRound round={round} key={index} />
       ))} */}
 
-      <div className="flex mt-4">
+      {/* <div className="flex mt-4">
         {roundList.map((round, index) => (
           <div className="border-2 w-40 h-40 ">{round}</div>
         ))}
-      </div>
+      </div> */}
 
       {/* 마진 병합 해제용 */}
       <div className="p-1"></div>
