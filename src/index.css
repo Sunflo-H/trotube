@@ -45,36 +45,43 @@ img {
   gap: 4px;
 }
 .영 {
+  background-color: #fecdd3;
   /* 1번 라인에서 4칸 */
   grid-column: 1 / span 4;
   /* 1번 라인에서 2칸 */
   grid-row: 1 / span 2;
 }
 .탁 {
+  background-color: #fed7aa;
   /* 4번 라인에서 2칸 */
   grid-column: 5 / span 2;
   /* 1번 라인에서 1칸 */
   grid-row: 1 / span 1;
 }
 .찬 {
+  background-color: #fbcfe8;
   /* 6번 라인에서 2칸 */
   grid-column: 7 / span 2;
   /* 1번 라인에서 1칸 */
   grid-row: 1 / span 1;
 }
 .호 {
+  background-color: #c7d2fe;
   /* 2번 라인에서 1칸 */
   grid-row: 2 / span 1;
 }
 .동 {
+  background-color: #bae6fd;
   /* 2번 라인에서 1칸 */
   grid-row: 2 / span 1;
 }
 .민 {
+  background-color: #bfdbfe;
   /* 2번 라인에서 1칸 */
   grid-row: 2 / span 1;
 }
 .희 {
+  background-color: #bbf7d0;
   /* 2번 라인에서 1칸 */
   grid-row: 2 / span 1;
 }

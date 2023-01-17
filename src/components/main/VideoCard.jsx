@@ -16,14 +16,14 @@ export default function VideoCard({ video }) {
       onClick={handleClick}
     >
       <img
+        className="rounded-xl w-full md:max-h-40"
         src={thumbnails.medium.url}
         alt={title}
-        className="rounded-xl w-full md:max-h-40"
       />
 
       <div className="px-px">
-        <div className=" font-semibold line-clamp-2">{title}</div>
-        <div className="opacity-80 text-sm">{channelTitle}</div>
+        <div className="mt-3 font-semibold line-clamp-2">{title}</div>
+        <div className="mt-2 opacity-80 text-sm">{channelTitle}</div>
         <div className="opacity-80 text-sm">{format(publishedAt)}</div>
       </div>
     </li>

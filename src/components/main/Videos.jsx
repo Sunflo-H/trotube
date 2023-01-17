@@ -4,22 +4,27 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import VideoCard from "./VideoCard";
 
-export default function Videos({ children }) {
+export default function Videos({ round }) {
   const { keyword } = useParams();
-  const { data: videos } = useQuery({
+  const { data: videosByKeyword } = useQuery({
     queryKey: ["videos", keyword],
     queryFn,
   });
+
+  const { data: videos } = useQuery({
+    queryKey: ["videos", round],
+    queryFn,
+  });
+
   console.log(videos);
 
   return (
     <div>
-      {children}
       <div className="">
         {videos && (
-          <ul className="grid gap-2 max-w-screen-2xl grid-cols-1 m-4 md:grid-cols-2  lg:grid-cols-3  xl:grid-cols-4 2xl:grid-cols-5 ">
+          <ul className="grid gap-4 max-w-screen-2xl grid-cols-1 m-4 md:grid-cols-2  lg:grid-cols-3  xl:grid-cols-4 2xl:grid-cols-5 ">
             {videos.map((video, index) =>
-              index > 9 ? "" : <VideoCard video={video[0]} key={video[0].id} />
+              index > 4 ? "" : <VideoCard video={video[0]} key={video[0].id} />
             )}
           </ul>
         )}
@@ -29,7 +34,7 @@ export default function Videos({ children }) {
 }
 
 const queryFn = async ({ queryKey }) => {
-  let url = queryKey[1] ? `/data/search.json` : `/data/mrtrot1/final.json`;
+  let url = `/data/mrtrot1/${queryKey[1]}.json`;
 
   const { data } = await axios.get(url);
 
