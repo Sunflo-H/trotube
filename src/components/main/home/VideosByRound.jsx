@@ -1,9 +1,10 @@
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import React from "react";
-import MainVideos from "./MainVideos";
-import Videos from "./Videos";
+import MainVideos from "../MainVideos";
+import Videos from "../Videos";
 
 export default function VideosByRound({ round }) {
-  console.log(round);
   return (
     <div className="my-10 ">
       <div className="flex items-end mx-4">

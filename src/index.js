@@ -5,8 +5,10 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Main from "./pages/Main";
+import Main from "./pages/Home";
 import VideoDetail from "./pages/VideoDetail";
+import Videos from "./components/main/Videos";
+import Result from "./pages/Result";
 
 const router = createBrowserRouter([
   {
@@ -23,11 +25,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/videos/:keyword",
-        element: <Main />,
+        element: <Result />,
       },
       {
         path: "/videos/watch/:videoId",
         element: <VideoDetail />,
+      },
+      {
+        path: "/videos/top7/:memberName",
+        element: <Videos />,
       },
     ],
   },
