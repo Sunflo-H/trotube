@@ -6,17 +6,15 @@ import VideoCard from "./VideoCard";
 
 export default function Videos({ round }) {
   const { keyword } = useParams();
-  const { data: videosByKeyword } = useQuery({
-    queryKey: ["videos", keyword],
-    queryFn,
-  });
+  // const { data: videosByKeyword } = useQuery({
+  //   queryKey: ["videos", keyword],
+  //   queryFn,
+  // });
 
   const { data: videos } = useQuery({
     queryKey: ["videos", round],
     queryFn,
   });
-
-  console.log(videos);
 
   return (
     <div>
@@ -35,6 +33,8 @@ export default function Videos({ round }) {
 
 const queryFn = async ({ queryKey }) => {
   let url = `/data/mrtrot1/${queryKey[1]}.json`;
+
+  console.log(url);
 
   const { data } = await axios.get(url);
 

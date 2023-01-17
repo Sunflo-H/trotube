@@ -9,7 +9,7 @@ export default function Top7() {
     queryKey: ["member"],
     queryFn: getMember,
   });
-
+  console.log(members);
   const BRIGHTNESS = 200;
 
   const color = [
@@ -24,12 +24,8 @@ export default function Top7() {
 
   return (
     <div className="">
-      <p>Top 7 🔥</p>
+      <p className="text-2xl font-bold mb-4 px-4">Top 7</p>
       <ul className="flex flex-col border lg:grid grid-cols-c8 grid-rows-c2 gap-2 p-4 shadow-2xl  m-auto">
-        {/* {members &&
-          members.map((member, index) => (
-            <MemberCard member={member} key={index} index={index} />
-          ))} */}
         <li className={`영 h-92  cursor-pointer hover:scale-105 duration-300`}>
           <img
             className="h-full m-auto  "

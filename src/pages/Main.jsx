@@ -28,6 +28,9 @@ export default function Main() {
       {roundList.map((round, index) => (
         <VideosByRound round={round} key={index} />
       ))}
+
+      {/* 마진 병합 해제용 */}
+      <div className="p-1"></div>
     </div>
   );
 }
