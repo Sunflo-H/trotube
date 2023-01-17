@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
 import MemberCard from "./MemberCard";
+import Videos from "./Videos";
 
 export default function Top7() {
   const { data: members } = useQuery({
@@ -10,19 +11,19 @@ export default function Top7() {
   });
 
   let color = [
-    "bg-slate-400",
-    // "bg-rose-300",
+    // "bg-slate-400",
+    "bg-rose-300",
     "bg-orange-300",
     "bg-pink-300",
     "bg-indigo-300",
     "bg-sky-300",
-    "bg-teal-200",
+    "bg-emerald-300",
     // "bg-amber-100",
     "bg-green-300",
   ];
 
   return (
-    <div className="border">
+    <div className="px-4">
       {/* {members && (
         <ul className="w-full h-4/5  m-auto ">
           {members.map((member, index) => (
@@ -30,11 +31,11 @@ export default function Top7() {
           ))}
         </ul>
       )} */}
-      <p className="text-2xl font-bold w-5/6 m-auto mb-4">Top 7</p>
+
       {/* 임영웅 */}
-      <ul className="flex flex-col xl:grid grid-cols-c7 grid-rows-c2 gap-1 w-4/5 border p-4 shadow-2xl m-auto">
+      <ul className="flex   flex-col border lg:grid grid-cols-c8 grid-rows-c2 gap-2 p-4 shadow-2xl  m-auto">
         <li
-          className={`영 h-92 ${color[0]} cursor-pointer hover:scale-110 duration-300`}
+          className={`영 h-92 ${color[0]} cursor-pointer hover:scale-105 duration-300`}
         >
           <img
             className="h-full m-auto  "
@@ -92,7 +93,7 @@ export default function Top7() {
           className={`민 ${color[5]} cursor-pointer overflow-hidden hover:scale-110 duration-300`}
         >
           <img
-            className="w-full object-contain m-auto mt-2 "
+            className="h-full m-auto"
             src={`/img/${data[5].singer}.png`}
             alt={data[5].singer}
           />
@@ -103,96 +104,31 @@ export default function Top7() {
           className={`희  ${color[6]} cursor-pointer overflow-hidden hover:scale-110 duration-300`}
         >
           <img
-            className=" h-full object-cover mt-2 "
+            className=" h-full m-auto "
             src={`/img/${data[6].singer}.png`}
             alt={data[6].singer}
           />
         </li>
       </ul>
+      {/* <라운드별비디오들 /> */}
+      <div>
+        결승전
+        <button>모두보기</button>
+        <Videos />
+      </div>
+      <div>
+        준결승전
+        <Videos />
+      </div>
+      <div>
+        본선
+        <Videos />
+      </div>
       <div className="h-80"> </div>
       <div className="h-80"> </div>
       <div className="h-80"> </div>
       <div className="h-80"> </div>
 
-      {/* 임영웅 */}
-      <ul className="w-4/5 grid grid-cols-8 gap-2 m-auto border p-4 box shadow-2xl">
-        <li
-          className={`h-92 col-span-2 row-span-2  ${color[0]} cursor-pointer`}
-        >
-          <img
-            className="h-full m-auto"
-            src={`/img/${data[0].singer}.png`}
-            alt={data[0].singer}
-          />
-        </li>
-
-        {/* 영탁 */}
-        <li className={`col-span-2 h-44 row-span-1 ${color[1]} cursor-pointer`}>
-          <img
-            className="h-full m-auto"
-            src={`/img/${data[1].singer}.png`}
-            alt={data[1].singer}
-          />
-        </li>
-
-        {/* 이찬원 */}
-        <li className={`col-span-2 h-44 row-span-1 ${color[2]} cursor-pointer`}>
-          <img
-            className="h-full m-auto"
-            src={`/img/${data[2].singer}.png`}
-            alt={data[2].singer}
-          />
-        </li>
-
-        {/* 김호중 */}
-        <li
-          className={`col-span-2 h-44 row-span-1  ${color[3]} cursor-pointer`}
-        >
-          <img
-            className="h-full m-auto"
-            src={`/img/${data[3].singer}.png`}
-            alt={data[3].singer}
-          />
-        </li>
-
-        {/* 정동원 */}
-        <li
-          className={` col-span-2 h-44 row-span-1 ${color[4]} cursor-pointer`}
-        >
-          <img
-            className="h-full m-auto"
-            src={`/img/${data[4].singer}.png`}
-            alt={data[4].singer}
-          />
-        </li>
-
-        {/* 장민호 */}
-        <li
-          className={` col-span-2 h-44 row-span-1 ${color[5]} cursor-pointer`}
-        >
-          <img
-            className="h-full m-auto "
-            src={`/img/${data[5].singer}.png`}
-            alt={data[5].singer}
-          />
-        </li>
-
-        {/* 김희재 */}
-        <li
-          className={` col-span-2 h-44 row-span-1 ${color[6]} cursor-pointer`}
-        >
-          <img
-            className=" h-44 m-auto "
-            src={`/img/${data[6].singer}.png`}
-            alt={data[6].singer}
-          />
-        </li>
-      </ul>
-
-      <div className="h-80"> </div>
-      <div className="h-80"> </div>
-      <div className="h-80"> </div>
-      <div className="h-80"> </div>
       {/* 임영웅 */}
       <div className="flex h-40  flex-col xl:flex-row border">
         <li

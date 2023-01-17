@@ -38,6 +38,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         c7: "repeat(7, minmax(100px, 200px))",
+        c8: "repeat(8, minmax(100px, 200px))",
       },
       gridTemplateRows: {
         c2: "repeat(2, minmax(100px, 200px))",

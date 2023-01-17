@@ -33,38 +33,5 @@ export default function MemberCard({ member, index }) {
         />
       </div>
     </li>
-    // 모바일용?
-    // <li className={`flex rounded-md list-none m-4 shadow-test bg-orange-400`}>
-    //   <div className=" rounded-lg w-48 mb-auto mx-4">
-    //     <img
-    //       className=" cursor-pointer m-auto py-2"
-    //       src={`/img/${singer}.png`}
-    //       alt={singer}
-    //     />
-    //   </div>
-    //   <div>
-    //     <div className=" px-4 text-3xl font-bold">
-    //       <div>
-    //         {index > 2 ? (
-    //           <>
-    //             <span>{index + 1}</span>
-    //             <span className="text-2xl">위</span>
-    //           </>
-    //         ) : (
-    //           <>
-    //             <span>{rank[index].koText}</span>
-    //             <span className="text-2xl opacity-80">
-    //               {rank[index].chText}
-    //             </span>
-    //           </>
-    //         )}
-    //       </div>
-    //       <div
-    //         className={`bg-youtube-red h-1 ${index > 2 ? "w-5" : "w-8"} mt-2`}
-    //       ></div>
-    //     </div>
-    //     <div className="mt-4 text-xl font-semibold px-4">{singer}</div>
-    //   </div>
-    // </li>
   );
 }

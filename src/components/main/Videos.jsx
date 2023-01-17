@@ -10,8 +10,7 @@ export default function Videos({ children }) {
     queryKey: ["videos", keyword],
     queryFn,
   });
-
-  console.log("최종 데이터", videos);
+  console.log(videos);
 
   return (
     <div>
@@ -19,9 +18,9 @@ export default function Videos({ children }) {
       <div className="">
         {videos && (
           <ul className="grid gap-2 max-w-screen-2xl grid-cols-1 m-4 md:grid-cols-2  lg:grid-cols-3  xl:grid-cols-4 2xl:grid-cols-5 ">
-            {videos.items.map((video) => (
-              <VideoCard video={video} key={video.id} />
-            ))}
+            {videos.map((video, index) =>
+              index > 9 ? "" : <VideoCard video={video[0]} key={video[0].id} />
+            )}
           </ul>
         )}
       </div>
@@ -30,18 +29,17 @@ export default function Videos({ children }) {
 }
 
 const queryFn = async ({ queryKey }) => {
-  let url = queryKey[1] ? `/data/search.json` : `/data/popular.json`;
+  let url = queryKey[1] ? `/data/search.json` : `/data/mrtrot1/final.json`;
 
   const { data } = await axios.get(url);
 
   // item의 형식을 일치시키는 코드
   // let items = data.items;
-  data.items.map((item) => {
-    if (queryKey[1]) item.id = item.id.videoId;
-    return item;
-  });
-
-  const result = { items: data.items, nextPageToken: data.nextPageToken };
-
+  // data.items.map((item) => {
+  //   if (queryKey[1]) item.id = item.id.videoId;
+  //   return item;
+  // });
+  // const result = { items: data.items, nextPageToken: data.nextPageToken };
+  const result = data.map((item) => item.items);
   return result;
 };

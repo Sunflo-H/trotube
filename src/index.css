@@ -45,20 +45,20 @@ img {
   gap: 4px;
 }
 .영 {
-  /* 1번 라인에서 2칸 */
-  grid-column: 1 / span 3;
+  /* 1번 라인에서 4칸 */
+  grid-column: 1 / span 4;
   /* 1번 라인에서 2칸 */
   grid-row: 1 / span 2;
 }
 .탁 {
   /* 4번 라인에서 2칸 */
-  grid-column: 4 / span 2;
+  grid-column: 5 / span 2;
   /* 1번 라인에서 1칸 */
   grid-row: 1 / span 1;
 }
 .찬 {
   /* 6번 라인에서 2칸 */
-  grid-column: 6 / span 2;
+  grid-column: 7 / span 2;
   /* 1번 라인에서 1칸 */
   grid-row: 1 / span 1;
 }
