@@ -4,39 +4,23 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import MemberCard from "../MemberCard";
 import Videos from "../Videos";
+import Top7Card from "./Top7Card";
 
 export default function Top7() {
-  const navigate = useNavigate();
   const { data: members } = useQuery({
     queryKey: ["member"],
     queryFn: getMember,
   });
 
-  // const BRIGHTNESS = 200;
-
-  // const color = [
-  //   `bg-rose-${BRIGHTNESS}`,
-  //   `bg-orange-${BRIGHTNESS}`,
-  //   `bg-pink-${BRIGHTNESS}`,
-  //   `bg-indigo-${BRIGHTNESS}`,
-  //   `bg-sky-${BRIGHTNESS}`,
-  //   `bg-blue-${BRIGHTNESS}`,
-  //   `bg-green-${BRIGHTNESS}`,
-  // ];
-
-  const handleClick = () => {
-    navigate("/videos/top7/임영웅", { state: { top7: "임영웅" } });
-  };
-
   return (
-    <div className="bg-blue-500 h-full">
+    <>
       {/* <p className="text-2xl font-bold mb-4 px-4">Top 7</p> */}
       {members && (
-        <ul className="flex flex-col border  h-3/5  lg:grid grid-cols-c8 grid-rows-c2 gap-2 p-4 shadow-2xl  m-auto">
-          <li
-            className={`영 cursor-pointer hover:scale-105 duration-300`}
-            onClick={handleClick}
-          >
+        <ul className="flex flex-col lg:grid grid-cols-c8 grid-rows-c2 gap-2 p-4 shadow-2xl  m-auto">
+          {members.map((member, index) => (
+            <Top7Card member={member} key={index} />
+          ))}
+          {/* <li className={`영 cursor-pointer hover:scale-110 duration-300`}>
             <img
               className="h-full m-auto  "
               src={`/img/${members[0].singer}.png`}
@@ -76,28 +60,24 @@ export default function Top7() {
             />
           </li>
 
-          <li
-            className={`민 cursor-pointer overflow-hidden hover:scale-110 duration-300`}
-          >
+          <li className={`민 cursor-pointer hover:scale-110 duration-300`}>
             <img
-              className="h-full m-auto mt-4"
+              className="h-full m-auto pt-2 "
               src={`/img/${members[5].singer}.png`}
               alt={members[5].singer}
             />
           </li>
 
-          <li
-            className={`희 cursor-pointer overflow-hidden hover:scale-110 duration-300`}
-          >
+          <li className={`희 cursor-pointer hover:scale-110 duration-300`}>
             <img
               className=" h-full m-auto "
               src={`/img/${members[6].singer}.png`}
               alt={members[6].singer}
             />
-          </li>
+          </li> */}
         </ul>
       )}
-    </div>
+    </>
   );
 }
 

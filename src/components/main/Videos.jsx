@@ -1,24 +1,23 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import VideoCard from "./VideoCard";
 
-export default function Videos({ round, top7 }) {
+export default function Videos({ round, count }) {
   const { keyword } = useParams();
 
   const { data: videos } = useQuery({
-    queryKey: ["videos", keyword, round, top7],
+    queryKey: ["videos", keyword, round],
     queryFn,
   });
-  console.log(videos);
 
   if (keyword) {
     return (
       <div>
         {videos && (
           <ul className="grid gap-4 max-w-screen-2xl grid-cols-1 m-4 md:grid-cols-2  lg:grid-cols-3  xl:grid-cols-4 2xl:grid-cols-5 ">
-            {videos.map((video, index) => (
+            {videos.map((video) => (
               <VideoCard video={video} key={video.id} />
             ))}
           </ul>
@@ -34,7 +33,7 @@ export default function Videos({ round, top7 }) {
           {videos && (
             <ul className="grid gap-4 max-w-screen-2xl grid-cols-1 m-4 md:grid-cols-2  lg:grid-cols-3  xl:grid-cols-4 2xl:grid-cols-5 ">
               {videos.map((video, index) =>
-                index > 4 ? (
+                index > count ? (
                   ""
                 ) : (
                   <VideoCard video={video[0]} key={video[0].id} />
@@ -51,7 +50,7 @@ export default function Videos({ round, top7 }) {
     <div>
       {videos && (
         <ul className="grid gap-4 max-w-screen-2xl grid-cols-1 m-4 md:grid-cols-2  lg:grid-cols-3  xl:grid-cols-4 2xl:grid-cols-5 ">
-          {videos.map((video, index) => (
+          {videos.map((video) => (
             <VideoCard video={video} key={video.id} />
           ))}
         </ul>
@@ -63,7 +62,6 @@ export default function Videos({ round, top7 }) {
 const queryFn = async ({ queryKey }) => {
   let type_search = queryKey[1];
   let type_round = queryKey[2];
-  let type_top7 = queryKey[3];
   let url;
 
   let result;
@@ -75,15 +73,13 @@ const queryFn = async ({ queryKey }) => {
       return item;
     });
     result = data.items;
-  } else if (type_round) {
+  } //asd
+  else if (type_round) {
     url = `/data/mrtrot1/${queryKey[2]}.json`;
     const { data } = await axios.get(url);
     result = data.map((item) => item.items);
-  } else if (type_top7) {
-    url = `/data/popular.json`;
-    const { data } = await axios.get(url);
-    result = data.items;
-  } else {
+  } //asd
+  else {
     url = `/data/popular.json`;
     const { data } = await axios.get(url);
     result = data.items;

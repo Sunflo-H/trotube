@@ -6,7 +6,6 @@ export default function VideoCard({ video }) {
   const { channelTitle, publishedAt, title, thumbnails } = video.snippet;
   const navigate = useNavigate();
 
-  console.log(video);
   const handleClick = () => {
     navigate(`/videos/watch/${video.id}`, { state: { video } });
   };

@@ -5,10 +5,12 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Main from "./pages/Home";
+import Home from "./pages/Home";
 import VideoDetail from "./pages/VideoDetail";
-import Videos from "./components/main/Videos";
-import Result from "./pages/Result";
+
+import SearchVideos from "./pages/SearchVideos";
+import Top7Videos from "./pages/Top7Videos";
+import RoundVideos from "./pages/RoundVideos";
 
 const router = createBrowserRouter([
   {
@@ -17,15 +19,11 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Main />,
-      },
-      {
-        path: "/videos",
-        element: <Main />,
+        element: <Home />,
       },
       {
         path: "/videos/:keyword",
-        element: <Result />,
+        element: <SearchVideos />,
       },
       {
         path: "/videos/watch/:videoId",
@@ -33,7 +31,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/videos/top7/:memberName",
-        element: <Videos />,
+        element: <Top7Videos />,
+      },
+      {
+        path: "/videos/round/:roundName",
+        element: <RoundVideos />,
       },
     ],
   },

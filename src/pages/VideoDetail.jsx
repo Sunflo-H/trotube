@@ -22,8 +22,6 @@ export default function VideoDetail() {
     queryFn: getRealVideos,
   });
 
-  // console.log(realVideos);
-
   const { channelId, description, title } = video.snippet;
 
   const { data: relatedVideos } = useQuery({

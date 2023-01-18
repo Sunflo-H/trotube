@@ -36,7 +36,10 @@ code {
   gap: 4px;
 }
 .영 {
-  background-color: #fecdd3;
+  /* background-color: #fecdd3; */
+  /* background-color: #fcd34d; */
+  /* background-color: #bef264; */
+  background-color: #fecaca;
   /* 1번 라인에서 4칸 */
   grid-column: 1 / span 4;
   /* 1번 라인에서 2칸 */
@@ -67,12 +70,24 @@ code {
   grid-row: 2 / span 1;
 }
 .민 {
+  padding-top: 4px;
   background-color: #bfdbfe;
   /* 2번 라인에서 1칸 */
   grid-row: 2 / span 1;
 }
 .희 {
   background-color: #bbf7d0;
+  /* background-color: #fcd34d; */
+  /* background-color: #5eead4; */
   /* 2번 라인에서 1칸 */
   grid-row: 2 / span 1;
+}
+
+.top7:hover > img {
+  scale: 1.05;
+  transform: translate(0, -5px);
+}
+
+.top7.영:hover > img {
+  transform: translate(0, -10px);
 }

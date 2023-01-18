@@ -3,17 +3,14 @@ import { useLocation } from "react-router-dom";
 import VideoCard from "../components/main/VideoCard";
 import Videos from "../components/main/Videos";
 
-export default function Top7Videos() {
-  const {
-    state: { member },
-  } = useLocation();
-
+export default function RoundVideos() {
+  const { state: videos } = useLocation();
   return (
     <div>
-      {member && (
+      {videos && (
         <ul className="grid gap-4 max-w-screen-2xl grid-cols-1 m-4 md:grid-cols-2  lg:grid-cols-3  xl:grid-cols-4 2xl:grid-cols-5 ">
-          {member.songs.map((song, index) => (
-            <VideoCard video={song.items[0]} key={song.items[0].id} />
+          {videos.map((video) => (
+            <VideoCard video={video} key={video.id} />
           ))}
         </ul>
       )}
