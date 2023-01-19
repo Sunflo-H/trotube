@@ -11,7 +11,7 @@ export default function VideoDetail() {
   const {
     state: { video },
   } = useLocation();
-
+  console.log(video);
   /**
    * 비디오의 아이디를 받아 실제 비디오를 받아와 조회수 정보를 추가한 받아오는 코드
    */
@@ -21,6 +21,8 @@ export default function VideoDetail() {
     queryKey: ["realVideos", video.id],
     queryFn: getRealVideos,
   });
+
+  console.log(realVideos && realVideos);
 
   const { channelId, description, title } = video.snippet;
 
@@ -68,9 +70,16 @@ export default function VideoDetail() {
           </div>
         </section>
         <section className="basis-3/12 px-2">
-          {relatedVideos && (
+          {/* {relatedVideos && (
             <ul>
               {relatedVideos.items.map((video) => (
+                <RelatedVideoCard video={video} key={video.id} />
+              ))}
+            </ul>
+          )} */}
+          {realVideos && (
+            <ul>
+              {realVideos.items.map((video) => (
                 <RelatedVideoCard video={video} key={video.id} />
               ))}
             </ul>
@@ -98,7 +107,10 @@ const getRelatedVideos = async ({ queryKey }) => {
 };
 
 const getRealVideos = async ({ queryKey }) => {
-  const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${queryKey[1]}&key=AIzaSyAfJbBrbKb1uxENbxnJrrJQLFwKBAfG744`;
+  // const params = { key: process.env.REACT_APP_YOUTUBE_API_KEY };
+  const key = "AIzaSyAfJbBrbKb1uxENbxnJrrJQLFwKBAfG744";
+
+  const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${queryKey[1]}&type=video&maxResults=25&key=${key}`;
   const { data } = await axios.get(url);
   return data;
 };
