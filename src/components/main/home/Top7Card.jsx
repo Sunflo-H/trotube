@@ -11,7 +11,7 @@ export default function Top7Card({ member }) {
   };
   return (
     <li
-      className={`${clas} h-24 sm:w-full sm:h-full rounded-2xl sm:rounded-none top7 cursor-pointer`}
+      className={`${clas}  sm:w-full sm:h-full rounded-2xl sm:rounded-none top7 cursor-pointer`}
       onClick={handleClick}
     >
       <img

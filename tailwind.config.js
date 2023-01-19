@@ -50,6 +50,7 @@ module.exports = {
       },
       gridTemplateRows: {
         c2: "repeat(2, minmax(100px, 200px))",
+        c3: "repeat(3, minmax(100px, 100px))",
       },
     },
   },

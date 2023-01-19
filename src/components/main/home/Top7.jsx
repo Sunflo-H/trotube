@@ -14,9 +14,9 @@ export default function Top7() {
 
   return (
     <>
-      {/* <p className="text-2xl font-bold mb-4 px-4">Top 7</p> */}
+      <p className=" sm:hidden text-3xl font-bold mb-4 px-4">Top 7</p>
       {members && (
-        <ul className="grid grid-cols-4 grid-rows-4 lg:grid lg:grid-cols-c8 lg:grid-rows-c2 gap-2 p-4 sm:shadow-2xl  m-auto">
+        <ul className="grid grid-cols-8 grid-rows-c3 lg:grid-cols-c8 lg:grid-rows-c2 lg:rounded-none rounded-2xl lg:gap-2 gap-1 p-4 shadow-2xl  m-auto">
           {members.map((member, index) => (
             <Top7Card member={member} key={index} />
           ))}

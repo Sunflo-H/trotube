@@ -23,7 +23,7 @@ export default function SearchHeader() {
   }, [keyword]);
 
   return (
-    <div className=" flex items-center py-8 2xl:bg-red-500 xl:bg-blue-500 lg:bg-green-500 md:bg-yellow-500 sm:bg-orange-500 ">
+    <div className=" flex items-center py-8 ">
       <Link className="flex items-center cursor-pointer ml-4 z-10" to="/">
         <BsYoutube className="text-youtube-red text-3xl mr-1 mt-1" />
         <div className="flex text-2xl font-bold rounded-xl p-1">

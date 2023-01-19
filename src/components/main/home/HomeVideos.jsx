@@ -17,10 +17,10 @@ export default function HomeVideos({ round }) {
   };
 
   return (
-    <div className="my-10 ">
+    <div className="lg:my-10 ">
       <div className="flex items-end px-4 cursor-pointer" onClick={handleClick}>
         <div className="text-2xl font-semibold ">{round}</div>
-        <div className="opacity-90 ml-auto">더보기</div>
+        <div className="hidden lg:block opacity-90 ml-auto">더보기</div>
       </div>
       <Videos round={round} count={4} />
     </div>
