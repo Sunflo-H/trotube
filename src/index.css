@@ -90,7 +90,7 @@ code {
   transform: translate(0, -10px);
 }
 
-@media (max-width: 500px) {
+@media (max-width: 640px) {
   .영 {
     /* background-color: transparent; */
     /* 1번 라인에서 4칸 */
@@ -161,7 +161,7 @@ code {
   }
 
   .top7 img {
-    object-fit: cover;
+    /* object-fit: cover; */
   }
 
   .top7:hover > img {
