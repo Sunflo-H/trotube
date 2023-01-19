@@ -11,7 +11,7 @@ export default function VideoDetail() {
   const {
     state: { video },
   } = useLocation();
-  console.log(video);
+  // console.log(video);
   /**
    * 비디오의 아이디를 받아 실제 비디오를 받아와 조회수 정보를 추가한 받아오는 코드
    */
@@ -22,7 +22,7 @@ export default function VideoDetail() {
     queryFn: getRealVideos,
   });
 
-  console.log(realVideos && realVideos);
+  // console.log(realVideos && realVideos);
 
   const { channelId, description, title } = video.snippet;
 
@@ -108,6 +108,7 @@ const getRelatedVideos = async ({ queryKey }) => {
 
 const getRealVideos = async ({ queryKey }) => {
   const key = process.env.REACT_APP_YOUTUBE_API_KEY;
+  console.log(process.env);
   // const key = "AIzaSyAfJbBrbKb1uxENbxnJrrJQLFwKBAfG744";
 
   const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${queryKey[1]}&type=video&maxResults=25&key=${key}`;

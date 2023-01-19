@@ -5,8 +5,6 @@ export default class Converter {
     const 기준 = 3;
     number = String(number);
     number = "1231231230";
-    console.log(number);
-    console.log(number.length);
 
     const length = number.length;
 
@@ -19,10 +17,10 @@ export default class Converter {
      * 13~15 T                       뒤에서 12자리
      */
 
-    if (15 < length) console.log(15);
-    else if (12 < length) console.log(12);
-    else if (9 < length) console.log(9);
-    else if (6 < length) return number;
-    else if (3 < length) return number;
+    // if (15 < length) console.log(15);
+    // else if (12 < length) console.log(12);
+    // else if (9 < length) console.log(9);
+    // else if (6 < length) return number;
+    // else if (3 < length) return number;
   }
 }
