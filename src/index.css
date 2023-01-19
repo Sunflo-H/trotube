@@ -161,8 +161,8 @@ code {
   }
 
   .top7 img {
-    /* object-fit: cover; */
-    margin-top: 4px;
+    /* object-fit: fill; */
+    /* margin-top: 4px; */
   }
 
   .top7:hover > img {

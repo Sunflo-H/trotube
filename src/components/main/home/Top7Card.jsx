@@ -15,7 +15,7 @@ export default function Top7Card({ member }) {
       onClick={handleClick}
     >
       <img
-        className="w-full h-full object-contain sm:h-full m-auto duration-300 "
+        className="h-full m-auto duration-300 "
         src={`/img/${name}.png`}
         alt={name}
       />
