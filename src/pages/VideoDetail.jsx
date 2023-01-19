@@ -107,8 +107,8 @@ const getRelatedVideos = async ({ queryKey }) => {
 };
 
 const getRealVideos = async ({ queryKey }) => {
-  // const params = { key: process.env.REACT_APP_YOUTUBE_API_KEY };
-  const key = "AIzaSyAfJbBrbKb1uxENbxnJrrJQLFwKBAfG744";
+  const key = process.env.REACT_APP_YOUTUBE_API_KEY;
+  // const key = "AIzaSyAfJbBrbKb1uxENbxnJrrJQLFwKBAfG744";
 
   const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${queryKey[1]}&type=video&maxResults=25&key=${key}`;
   const { data } = await axios.get(url);
