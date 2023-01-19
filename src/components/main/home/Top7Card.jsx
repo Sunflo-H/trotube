@@ -10,9 +10,12 @@ export default function Top7Card({ member }) {
     });
   };
   return (
-    <li className={`${clas} top7 cursor-pointer `} onClick={handleClick}>
+    <li
+      className={`${clas} h-24 sm:w-full sm:h-full rounded-2xl sm:rounded-none top7 cursor-pointer`}
+      onClick={handleClick}
+    >
       <img
-        className="h-full m-auto duration-300 "
+        className="w-full h-full object-contain sm:h-full m-auto duration-300 "
         src={`/img/${name}.png`}
         alt={name}
       />

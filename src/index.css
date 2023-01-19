@@ -35,10 +35,8 @@ code {
   grid-template-rows: repeat(2, minmax(100px, auto));
   gap: 4px;
 }
+
 .영 {
-  /* background-color: #fecdd3; */
-  /* background-color: #fcd34d; */
-  /* background-color: #bef264; */
   background-color: #fecaca;
   /* 1번 라인에서 4칸 */
   grid-column: 1 / span 4;
@@ -90,4 +88,60 @@ code {
 
 .top7.영:hover > img {
   transform: translate(0, -10px);
+}
+
+@media (max-width: 500px) {
+  .영 {
+    background-color: #fecaca;
+    /* 1번 라인에서 4칸 */
+    grid-column: 1 / span 4;
+    /* 1번 라인에서 2칸 */
+    grid-row: 1 / span 1;
+    overflow: hidden;
+  }
+  .영 img {
+    width: 100px;
+    height: 200px;
+    object-fit: cover;
+  }
+  .탁 {
+    background-color: #fed7aa;
+    /* 4번 라인에서 2칸 */
+    grid-column: 1 / span 2;
+    /* 1번 라인에서 1칸 */
+    grid-row: 2 / span 1;
+  }
+  .찬 {
+    background-color: #fbcfe8;
+    /* 6번 라인에서 2칸 */
+    grid-column: 3 / span 2;
+    /* 1번 라인에서 1칸 */
+    grid-row: 2 / span 1;
+  }
+  .호 {
+    background-color: #c7d2fe;
+
+    grid-column: 1 / span 2;
+    /* 2번 라인에서 1칸 */
+    grid-row: 3 / span 1;
+  }
+  .동 {
+    background-color: #bae6fd;
+    grid-column: 3 / span 2;
+    /* 2번 라인에서 1칸 */
+    grid-row: 3 / span 1;
+  }
+  .민 {
+    padding-top: 4px;
+    background-color: #bfdbfe;
+    grid-column: 1 / span 2;
+    /* 2번 라인에서 1칸 */
+    grid-row: 4 / span 1;
+  }
+  .희 {
+    background-color: #bbf7d0;
+    grid-column: 3 / span 2;
+    /* 2번 라인에서 1칸 */
+    grid-row: 4 / span 1;
+  }
 }
