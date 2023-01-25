@@ -8,6 +8,7 @@ export default function RelatedVideoCard({ video }) {
 
   const handleClick = () => {
     navigate(`/videos/watch/${video.id}`, { state: { video } });
+    window.scrollTo(0, 0);
   };
 
   return (
