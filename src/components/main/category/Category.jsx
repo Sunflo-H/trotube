@@ -22,5 +22,7 @@ const categoryList = [
   { title: "Top 7" },
   { title: "결승" },
   { title: "준결승" },
-  { title: "본선" },
+  { title: "본선 1차전" },
+  { title: "본선 2차전" },
+  { title: "본선 3차전" },
 ];

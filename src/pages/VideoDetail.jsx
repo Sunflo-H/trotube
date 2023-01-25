@@ -21,10 +21,10 @@ export default function VideoDetail() {
 
   const { channelId, description, title } = video.snippet;
 
-  // const { data: relatedVideos } = useQuery({
-  //   queryKey: ["related", video.id],
-  //   queryFn: getRelatedVideos,
-  // });
+  const { data: relatedVideos } = useQuery({
+    queryKey: ["relatedVideos", video.id],
+    queryFn: getRelatedVideos,
+  });
 
   const handleClick = () => {
     setShow((prev) => !prev);
@@ -36,10 +36,11 @@ export default function VideoDetail() {
   }, [video]);
 
   return (
-    <div className="flex justify-center ">
+    <div className="flex justify-center">
       <div className="flex flex-col lg:flex-row max-w-screen-2xl ">
-        <section className="basis-9/12 px-2">
+        <section className="basis-9/12 sm:px-2">
           <iframe
+            className="hidden sm:block"
             id="player"
             type="text/html"
             width="100%"
@@ -48,8 +49,18 @@ export default function VideoDetail() {
             frameBorder="0"
             title={title}
           ></iframe>
+          <iframe
+            className=" sm:hidden px-2"
+            id="player"
+            type="text/html"
+            width="100%"
+            height="250px"
+            src={`https://www.youtube.com/embed/${video.id}`}
+            frameBorder="0"
+            title={title}
+          ></iframe>
           <div>
-            <div className="text-xl font-semibold my-4">{title}</div>
+            <div className="px-2 text-xl font-semibold my-4">{title}</div>
             <Channel channelId={channelId} />
 
             {description && (
@@ -58,9 +69,6 @@ export default function VideoDetail() {
                 show={show}
                 handleClick={handleClick}
               />
-              // description 말고도 위에 조회수, 시간 입력해
-              // 그렇게하면 description이 없어도 조회수, 시간으로 show more 할 수 있다.
-              // 참고 동영상 제목 : '새를 본 고양이 울음소리'
             )}
           </div>
         </section>
@@ -103,11 +111,11 @@ const getRelatedVideos = async ({ queryKey }) => {
 
 const getRealVideos = async ({ queryKey }) => {
   const key = process.env.REACT_APP_YOUTUBE_API_KEY;
-  console.log(process.env);
   // const key = "AIzaSyAfJbBrbKb1uxENbxnJrrJQLFwKBAfG744";
-
+  console.log(key);
   const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${queryKey[1]}&type=video&maxResults=25&key=${key}`;
   const { data } = await axios.get(url);
+  console.log(data);
   const result = data.items.map((item) => ({ ...item, id: item.id.videoId }));
   return result;
 };

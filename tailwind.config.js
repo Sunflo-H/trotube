@@ -25,6 +25,9 @@ module.exports = {
           red: "#fc9b91",
         },
       },
+      width: {
+        1000: "1000px",
+      },
       height: {
         400: "400px",
         500: "500px",
@@ -41,8 +44,8 @@ module.exports = {
       },
       boxShadow: {
         "3xl": "0 35px 60px -15px rgba(0, 0, 0, 0.3)",
-        // test: "-1px -1px 1px 1px #000000, 1px 1px 1px 1px black",
-        test: " -2px -2px 5px rgba(255, 255, 255, 1),3px 3px 5px rgba(0, 0, 0, 0.1)",
+        // test: " -2px -2px 5px rgba(255, 255, 255, 1),3px 3px 5px rgba(0, 0, 0, 0.1)",
+        test: "0px 3px 1px 2px rgba(0, 0, 0, 0.1)",
       },
       gridTemplateColumns: {
         c7: "repeat(7, minmax(100px, 200px))",
@@ -50,7 +53,7 @@ module.exports = {
       },
       gridTemplateRows: {
         c2: "repeat(2, minmax(100px, 200px))",
-        c3: "repeat(3, minmax(100px, 100px))",
+        c3: "repeat(3, minmax(100px, 80px))",
       },
     },
   },

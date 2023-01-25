@@ -2,28 +2,40 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import VideoCard from "../VideoCard";
-import Videos from "../Videos";
 
-export default function HomeVideos({ round }) {
+export default function RoundBtn({ round }) {
+  let str = round;
+  let str1, str2;
+  if (str !== "준결승전" && str !== "결승전") {
+    str = str.split(" ");
+    str1 = str[0];
+    str2 = str[1];
+    round = str1 + str2;
+  }
+
   const navigate = useNavigate();
   const { data: videos } = useQuery({
     queryKey: ["videos", round],
     queryFn,
   });
-  const str = round.replace(" ", "");
+
   const handleClick = () => {
     navigate(`/videos/round/${round}`, { state: videos });
   };
-
   return (
-    <div className="my-10 ">
-      <div className="flex items-end px-4 cursor-pointer" onClick={handleClick}>
-        <div className="text-2xl font-semibold ">{round}</div>
-        <div className="hidden lg:block opacity-90 ml-auto">더보기</div>
-      </div>
-      <Videos round={str} count={4} />
-    </div>
+    <li
+      className="flex flex-col items-center justify-center basis-1/4 h-20 rounded-xl shadow-test"
+      onClick={handleClick}
+    >
+      {str1 ? (
+        <>
+          <p>{str1}</p>
+          <p>{str2}</p>
+        </>
+      ) : (
+        <p>{round}</p>
+      )}
+    </li>
   );
 }
 
