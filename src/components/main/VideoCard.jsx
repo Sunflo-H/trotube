@@ -13,7 +13,7 @@ export default function VideoCard({ video }) {
 
   return (
     <li
-      className="cursor-pointer bg-white rounded-2xl px-14 mb-4 md:p-0 md:m-0  "
+      className="cursor-pointer bg-white rounded-2xl px-2 mb-4 md:p-0 md:m-0  "
       onClick={handleClick}
     >
       <img
