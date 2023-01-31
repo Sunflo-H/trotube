@@ -47,7 +47,7 @@ export default function VideoDetail() {
             allow="fullscreen"
           ></iframe>
           <iframe
-            className=" sm:hidden px-px"
+            className=" sm:hidden px-2"
             id="player"
             type="text/html"
             width="100%"
