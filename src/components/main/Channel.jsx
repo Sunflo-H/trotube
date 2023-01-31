@@ -24,7 +24,7 @@ export default function Channel({ channelId }) {
           />
           <div>
             <div className="font-semibold">{channel.snippet.title}</div>
-            <div>{channel.statistics.subscriberCount}</div>
+            {/* <div>{channel.statistics.subscriberCount}</div> */}
           </div>
         </>
       )}

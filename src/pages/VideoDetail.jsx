@@ -26,10 +26,6 @@ export default function VideoDetail() {
     queryFn: getRelatedVideos,
   });
 
-  const handleClick = () => {
-    setShow((prev) => !prev);
-  };
-
   // 새 비디오디테일 페이지로 이동했을때 show state를 초기화한다.
   useEffect(() => {
     setShow(false);
@@ -48,18 +44,20 @@ export default function VideoDetail() {
             src={`https://www.youtube.com/embed/${video.id}`}
             frameBorder="0"
             title={title}
+            allow="fullscreen"
           ></iframe>
           <iframe
-            className=" sm:hidden px-2"
+            className=" sm:hidden px-px"
             id="player"
             type="text/html"
             width="100%"
-            height="250px"
+            height="300px"
             src={`https://www.youtube.com/embed/${video.id}`}
             frameBorder="0"
             title={title}
+            allow="fullscreen"
           ></iframe>
-          <div>
+          <div className="w-full">
             <div className="px-2 text-xl font-semibold my-4">{title}</div>
             <Channel channelId={channelId} />
 
@@ -67,7 +65,7 @@ export default function VideoDetail() {
               <Description
                 description={description}
                 show={show}
-                handleClick={handleClick}
+                setShow={setShow}
               />
             )}
           </div>
@@ -112,7 +110,6 @@ const getRelatedVideos = async ({ queryKey }) => {
 const getRealVideos = async ({ queryKey }) => {
   const key = process.env.REACT_APP_YOUTUBE_API_KEY;
   // const key = "AIzaSyAfJbBrbKb1uxENbxnJrrJQLFwKBAfG744";
-  console.log(key);
   const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${queryKey[1]}&type=video&maxResults=25&key=${key}`;
   const { data } = await axios.get(url);
   console.log(data);

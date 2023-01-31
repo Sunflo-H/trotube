@@ -1,32 +1,35 @@
 import React from "react";
 
-export default function Description({ description, show, handleClick }) {
+export default function Description({ description, show, setShow }) {
+  const handleClick = () => {
+    setShow((prev) => !prev);
+  };
   return (
     <>
-      {show ? (
-        <div className="w-96 sm:w-full max-w-full px-2">
-          <pre className="text-sm whitespace-pre-wrap bg-gray-100 px-4 py-3 rounded-2xl mb-4">
-            {description}
-            <div className="mt-10 font-semibold">
-              <span className=" cursor-pointer" onClick={handleClick}>
-                show less
-              </span>
-            </div>
-          </pre>
-        </div>
-      ) : (
-        <div className="w-96 sm:w-full max-w-full px-2">
+      <div className=" max-w-full  px-2 bg-blue-400">
+        {show ? (
+          <div className="bg-gray-100 rounded-2xl mb-4 px-4 pt-3 ">
+            <pre className="w-64 sm:w-full text-sm whitespace-pre-wrap truncate bg-red-500">
+              {description}
+              <div className="mt-10 font-semibold">
+                <span className=" cursor-pointer" onClick={handleClick}>
+                  show less
+                </span>
+              </div>
+            </pre>
+          </div>
+        ) : (
           <div
-            className="relative bg-gray-100 px-4 pt-3 pb-8 rounded-2xl cursor-pointer hover:bg-gray-200 mb-4"
+            className="relative min-w-full bg-gray-100 px-4 pt-3 pb-8 rounded-2xl cursor-pointer hover:bg-gray-200 mb-4 "
             onClick={handleClick}
           >
-            <pre className="text-sm whitespace-pre-wrap h-10 overflow-hidden ">
+            <pre className="w-64 sm:w-full text-sm whitespace-pre-wrap h-10 overflow-hidden bg-red-500 ">
               {description}
               <p className="absolute bottom-1 font-semibold top">show more</p>
             </pre>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </>
   );
 }
