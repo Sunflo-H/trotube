@@ -28,7 +28,8 @@ export default function HomeVideos({ round }) {
 }
 
 const queryFn = async ({ queryKey }) => {
-  const url = `/data/mrtrot1/${queryKey[1]}.json`;
+  let round = queryKey[1].replace(" ", "");
+  const url = `/data/mrtrot1/${round}.json`;
   const { data } = await axios.get(url);
   const result = data.map((data) => data.items[0]);
   return result;

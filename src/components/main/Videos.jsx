@@ -63,22 +63,22 @@ const queryFn = async ({ queryKey }) => {
   let type_search = queryKey[1];
   let type_round = queryKey[2];
   let url;
-
   let result;
+  const key = process.env.REACT_APP_YOUTUBE_API_KEY;
   if (type_search) {
-    url = `/data/search.json`;
+    url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${type_search}&key=${key}`;
     const { data } = await axios.get(url);
     data.items.map((item) => {
       if (queryKey[1]) item.id = item.id.videoId;
       return item;
     });
     result = data.items;
-  } //asd
+  } //
   else if (type_round) {
     url = `/data/mrtrot1/${queryKey[2]}.json`;
     const { data } = await axios.get(url);
     result = data.map((item) => item.items);
-  } //asd
+  } //
   else {
     url = `/data/popular.json`;
     const { data } = await axios.get(url);

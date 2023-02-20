@@ -7,7 +7,6 @@ import RoundBtn from "../components/main/RoundBtn";
 export default function Home() {
   return (
     <div className=" relative w-full h-full px-4 ">
-      {/* <Category /> */}
       <Top7 />
 
       <div className="hidden lg:block">
