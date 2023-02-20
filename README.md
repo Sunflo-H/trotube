@@ -1,4 +1,4 @@
-# Project : Youtube Final (ver.trot)
+# Project : Youtube ver.trot
 # Stack
 - HTML
 - CSS
@@ -25,5 +25,24 @@
 3. 동영상 검색
 
 # 스크린샷
+## Full
+### Home
+![image](https://user-images.githubusercontent.com/70611956/219988014-3612b5dc-1335-42e7-9749-c33d08c645f7.png)
+
+### Video Detail
+![image](https://user-images.githubusercontent.com/70611956/219988244-f737c311-75d2-4eb3-acf6-9aa5ae5a598d.png)
+
+### Search
+![image](https://user-images.githubusercontent.com/70611956/219988276-cb20feea-c646-4bc7-9589-e5da14035e84.png)
+
+## Video List
+![image](https://user-images.githubusercontent.com/70611956/219988035-f4719560-cc5a-4974-902f-7695ec7e873f.png)
+
+## Video 
+![image](https://user-images.githubusercontent.com/70611956/219988059-8e99bd20-c9e9-4667-885a-cc98322aca82.png)
+
+## Related Video
+![image](https://user-images.githubusercontent.com/70611956/219988197-63d4f69f-fe11-4274-b44a-d413a272c2a5.png)
+
 
 # 어려웠던점
