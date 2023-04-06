@@ -44,7 +44,6 @@ module.exports = {
       },
       boxShadow: {
         "3xl": "0 35px 60px -15px rgba(0, 0, 0, 0.3)",
-        // test: " -2px -2px 5px rgba(255, 255, 255, 1),3px 3px 5px rgba(0, 0, 0, 0.1)",
         test: "0px 3px 1px 2px rgba(0, 0, 0, 0.1)",
       },
       gridTemplateColumns: {

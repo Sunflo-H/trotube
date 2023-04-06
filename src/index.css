@@ -11,7 +11,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Music Player List UI */
   @apply flex w-full h-full justify-center;
   -ms-overflow-style: none;
 }
@@ -38,46 +37,44 @@ code {
 
 .영 {
   background-color: #fecaca;
-  /* 1번 라인에서 4칸 */
+  /* 1번 라인에서 가로 4칸 */
   grid-column: 1 / span 4;
-  /* 1번 라인에서 2칸 */
+  /* 1번 라인에서 세로 2칸 */
   grid-row: 1 / span 2;
 }
 .탁 {
   background-color: #fed7aa;
-  /* 4번 라인에서 2칸 */
+  /* 4번 라인에서 가로 2칸 */
   grid-column: 5 / span 2;
-  /* 1번 라인에서 1칸 */
+  /* 1번 라인에서 세로 1칸 */
   grid-row: 1 / span 1;
 }
 .찬 {
   background-color: #fbcfe8;
-  /* 6번 라인에서 2칸 */
+  /* 6번 라인에서 가로 2칸 */
   grid-column: 7 / span 2;
-  /* 1번 라인에서 1칸 */
+  /* 1번 라인에서 세로 1칸 */
   grid-row: 1 / span 1;
 }
 .호 {
   background-color: #c7d2fe;
-  /* 2번 라인에서 1칸 */
+  /* 2번 라인에서 세로 1칸 */
   grid-row: 2 / span 1;
 }
 .동 {
   background-color: #bae6fd;
-  /* 2번 라인에서 1칸 */
+  /* 2번 라인에서 세로 1칸 */
   grid-row: 2 / span 1;
 }
 .민 {
   padding-top: 4px;
   background-color: #bfdbfe;
-  /* 2번 라인에서 1칸 */
+  /* 2번 라인에서 세로 1칸 */
   grid-row: 2 / span 1;
 }
 .희 {
   background-color: #bbf7d0;
-  /* background-color: #fcd34d; */
-  /* background-color: #5eead4; */
-  /* 2번 라인에서 1칸 */
+  /* 2번 라인에서 세로 1칸 */
   grid-row: 2 / span 1;
 }
 
@@ -90,14 +87,13 @@ code {
   transform: translate(0, -10px);
 }
 
-@media (max-width: 640px) {
+/* @media (max-width: 640px) { */
+@media (max-width: 1024px) {
   .영 {
-    /* background-color: transparent; */
     /* 1번 라인에서 4칸 */
     grid-column: 1 / span 4;
     /* 1번 라인에서 2칸 */
     grid-row: 1 / span 2;
-    /* overflow: hidden; */
   }
 
   .탁 {
@@ -111,7 +107,6 @@ code {
   }
 
   .찬 {
-    /* background-color: transparent; */
     /* 6번 라인에서 2칸 */
     grid-column: 5 / span 4;
     /* 1번 라인에서 1칸 */
@@ -122,15 +117,12 @@ code {
   }
 
   .호 {
-    /* background-color: transparent; */
-
     grid-column: 1 / span 2;
     /* 2번 라인에서 1칸 */
     grid-row: 3 / span 1;
   }
 
   .동 {
-    /* background-color: transparent; */
     grid-column: 3 / span 2;
     /* 2번 라인에서 1칸 */
     grid-row: 3 / span 1;
@@ -138,7 +130,7 @@ code {
 
   .민 {
     padding-top: 4px;
-    /* background-color: transparent; */
+
     grid-column: 5 / span 2;
     /* 2번 라인에서 1칸 */
     grid-row: 3 / span 1;
@@ -149,20 +141,13 @@ code {
   }
 
   .희 {
-    /* background-color: transparent; */
     grid-column: 7 / span 2;
     /* 2번 라인에서 1칸 */
     grid-row: 3 / span 1;
   }
 
   .top7 {
-    /* box-shadow: 2px 1px 1px 1px rgb(166, 166, 166); */
     overflow: hidden;
-  }
-
-  .top7 img {
-    /* object-fit: fill; */
-    /* margin-top: 4px; */
   }
 
   .top7:hover > img {
