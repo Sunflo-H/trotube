@@ -15,7 +15,6 @@ export default function Videos({ round, count }) {
     queryFn,
   });
 
-  console.log(round);
   // 키워드가 있다면 검색한 비디오 목록을 보여준다.
   if (keyword) {
     return (

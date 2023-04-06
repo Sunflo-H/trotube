@@ -12,8 +12,8 @@ export default function EtcBtn({ title }) {
 
   return (
     <li
-      className="flex flex-col items-center justify-center basis-1/4 h-32 rounded-xl shadow-test
-      cursor-pointer bg-yellow-400 text-indigo-700 text-5xl text-center "
+      className="flex flex-col items-center justify-center h-32 w-32  rounded-xl shadow-test
+      cursor-pointer bg-yellow-400 text-indigo-700 text-2xl text-center font-bold"
       onClick={handleClick}
     >
       {title}

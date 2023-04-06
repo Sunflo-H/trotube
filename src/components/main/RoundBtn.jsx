@@ -25,7 +25,7 @@ export default function RoundBtn({ round }) {
 
   return (
     <li
-      className="flex flex-col items-center justify-center basis-1/4 h-32 rounded-xl shadow-test
+      className="flex flex-col items-center justify-center h-24 w-28 rounded-xl shadow-test
       text-2xl cursor-pointer"
       onClick={handleClick}
     >

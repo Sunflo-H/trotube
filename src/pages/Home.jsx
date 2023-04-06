@@ -6,7 +6,7 @@ import RoundBtn from "../components/main/RoundBtn";
 import EtcBtn from "../components/main/EtcBtn";
 
 export default function Home() {
-  const arr = ["사노라면", "고부열전"];
+  const arr = ["사노라면", "며느리"];
   return (
     <div className=" relative w-full h-full px-4 ">
       <Top7 />
@@ -18,7 +18,7 @@ export default function Home() {
       </div>
 
       <div className="lg:hidden my-10">
-        <p className="text-2xl font-bold">사노라면, 외국인며느리 보기</p>
+        <p className="text-2xl font-bold">사노라면, 외국인며느리</p>
         <ul className="flex flex-wrap mt-4 gap-4 font-bold text-gray-900 justify-center">
           {arr.map((title, index) => (
             <EtcBtn title={title} key={index} />
