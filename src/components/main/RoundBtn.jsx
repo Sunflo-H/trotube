@@ -25,18 +25,32 @@ export default function RoundBtn({ round }) {
 
   return (
     <li
-      className="flex flex-col items-center justify-center h-24 w-28 rounded-xl shadow-test
-      text-2xl cursor-pointer"
+      // * 버튼형일때
+      // className="flex flex-col items-center justify-center h-24 w-28 rounded-xl shadow-test
+      // text-2xl cursor-pointer"
+
+      // * 리스트형일때
+      className="flex w-full rounded-xl relative
+      text-2xl cursor-pointer overflow-hidden "
       onClick={handleClick}
     >
-      {str1 ? (
+      {/* {str1 ? (
         <>
           <p>{str1}</p>
           <p>{str2}</p>
         </>
       ) : (
         <p>{round}</p>
-      )}
+      )} */}
+      <img
+        className="w-full h-20 m-auto opacity-90 "
+        src={`/img/${round}.jpg`}
+      />
+      <div
+        className={`absolute flex items-center pl-4 w-full h-full text-white  ${round}`}
+      >
+        <span className="">{round}</span>
+      </div>
     </li>
   );
 }

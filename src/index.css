@@ -85,6 +85,23 @@ code {
 
 .top7.영:hover > img {
   transform: translate(0, -10px);
+  /* background-color: goldenrod; */
+}
+
+.본선1차전 {
+  background: linear-gradient(to right, dodgerblue 25%, transparent);
+}
+.본선2차전 {
+  background: linear-gradient(to right, orange 25%, transparent);
+}
+.본선3차전 {
+  background: linear-gradient(to right, rgb(0, 166, 118) 25%, transparent);
+}
+.준결승전 {
+  background: linear-gradient(to right, rgb(131, 145, 218) 25%, transparent);
+}
+.결승전 {
+  background: linear-gradient(to right, rgb(213, 118, 114) 25%, transparent);
 }
 
 /* @media (max-width: 640px) { */
