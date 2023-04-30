@@ -1,9 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import MemberCard from "../MemberCard";
-import Videos from "../Videos";
 import Top7Card from "./Top7Card";
 
 export default function Top7() {

@@ -2,7 +2,7 @@ import React from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Top7Card({ member }) {
-  const { name, clas } = member;
+  const { name, rank } = member;
   const navigate = useNavigate();
   const handleClick = () => {
     navigate(`/videos/top7/${name}`, {
@@ -11,7 +11,7 @@ export default function Top7Card({ member }) {
   };
   return (
     <li
-      className={`${clas}  sm:w-full sm:h-full rounded-2xl lg:rounded-none top7 cursor-pointer`}
+      className={`${rank}  sm:w-full sm:h-full rounded-2xl lg:rounded-none top7 cursor-pointer`}
       onClick={handleClick}
     >
       <img

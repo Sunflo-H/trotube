@@ -35,44 +35,44 @@ code {
   gap: 4px;
 }
 
-.영 {
+.first-place {
   background-color: #fecaca;
   /* 1번 라인에서 가로 4칸 */
   grid-column: 1 / span 4;
   /* 1번 라인에서 세로 2칸 */
   grid-row: 1 / span 2;
 }
-.탁 {
+.second-place {
   background-color: #fed7aa;
   /* 4번 라인에서 가로 2칸 */
   grid-column: 5 / span 2;
   /* 1번 라인에서 세로 1칸 */
   grid-row: 1 / span 1;
 }
-.찬 {
+.third-place {
   background-color: #fbcfe8;
   /* 6번 라인에서 가로 2칸 */
   grid-column: 7 / span 2;
   /* 1번 라인에서 세로 1칸 */
   grid-row: 1 / span 1;
 }
-.호 {
+.fourth-place {
   background-color: #c7d2fe;
   /* 2번 라인에서 세로 1칸 */
   grid-row: 2 / span 1;
 }
-.동 {
+.fifth-place {
   background-color: #bae6fd;
   /* 2번 라인에서 세로 1칸 */
   grid-row: 2 / span 1;
 }
-.민 {
+.sixth-place {
   padding-top: 4px;
   background-color: #bfdbfe;
   /* 2번 라인에서 세로 1칸 */
   grid-row: 2 / span 1;
 }
-.희 {
+.seventh-place {
   background-color: #bbf7d0;
   /* 2번 라인에서 세로 1칸 */
   grid-row: 2 / span 1;
@@ -83,7 +83,7 @@ code {
   transform: translate(0, -5px);
 }
 
-.top7.영:hover > img {
+.top7.first-place:hover > img {
   transform: translate(0, -10px);
   /* background-color: goldenrod; */
 }
@@ -106,58 +106,58 @@ code {
 
 /* @media (max-width: 640px) { */
 @media (max-width: 1024px) {
-  .영 {
+  .first-place {
     /* 1번 라인에서 4칸 */
     grid-column: 1 / span 4;
     /* 1번 라인에서 2칸 */
     grid-row: 1 / span 2;
   }
 
-  .탁 {
+  .second-place {
     /* 4번 라인에서 2칸 */
     grid-column: 5 / span 4;
     /* 1번 라인에서 1칸 */
     grid-row: 1 / span 1;
   }
-  .탁 img {
+  .second-place img {
     object-position: top;
   }
 
-  .찬 {
+  .third-place {
     /* 6번 라인에서 2칸 */
     grid-column: 5 / span 4;
     /* 1번 라인에서 1칸 */
     grid-row: 2 / span 1;
   }
-  .찬 img {
+  .third-place img {
     object-position: top;
   }
 
-  .호 {
+  .fourth-place {
     grid-column: 1 / span 2;
     /* 2번 라인에서 1칸 */
     grid-row: 3 / span 1;
   }
 
-  .동 {
+  .fifth-place {
     grid-column: 3 / span 2;
     /* 2번 라인에서 1칸 */
     grid-row: 3 / span 1;
   }
 
-  .민 {
+  .sixth-place {
     padding-top: 4px;
 
     grid-column: 5 / span 2;
     /* 2번 라인에서 1칸 */
     grid-row: 3 / span 1;
   }
-  .민 img {
+  .sixth-place img {
     margin-top: 4px;
     object-position: top;
   }
 
-  .희 {
+  .seventh-place {
     grid-column: 7 / span 2;
     /* 2번 라인에서 1칸 */
     grid-row: 3 / span 1;
@@ -172,7 +172,7 @@ code {
     transform: translate(0, -3px);
   }
 
-  .top7.영:hover > img {
+  .top7.first-place:hover > img {
     transform: translate(0, -3px);
   }
 }

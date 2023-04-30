@@ -741,7 +741,7 @@
         }
       }
     ],
-    "clas": "영"
+    "rank": "first-place"
   },
   {
     "name": "영탁",
@@ -1377,7 +1377,7 @@
         }
       }
     ],
-    "clas": "탁"
+    "rank": "second-place"
   },
   {
     "name": "이찬원",
@@ -2050,7 +2050,7 @@
         }
       }
     ],
-    "clas": "찬"
+    "rank": "third-place"
   },
   {
     "name": "김호중",
@@ -2785,7 +2785,7 @@
         }
       }
     ],
-    "clas": "호"
+    "rank": "fourth-place"
   },
   {
     "name": "정동원",
@@ -3450,7 +3450,7 @@
         }
       }
     ],
-    "clas": "동"
+    "rank": "fifth-place"
   },
   {
     "name": "장민호",
@@ -4120,7 +4120,7 @@
         }
       }
     ],
-    "clas": "민"
+    "rank": "sixth-place"
   },
   {
     "name": "김희재",
@@ -4779,6 +4779,6 @@
         }
       }
     ],
-    "clas": "희"
+    "rank": "seventh-place"
   }
 ]

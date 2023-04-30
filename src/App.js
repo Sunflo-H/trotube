@@ -1,6 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Outlet } from "react-router-dom";
-import "./App.css";
 import SearchHeader from "./components/header/SearchHeader";
 
 function App() {
@@ -9,7 +8,6 @@ function App() {
   return (
     <>
       <SearchHeader />
-      {/* <div>{localStorage.getItem("name")}</div> */}
       <QueryClientProvider client={queryClient}>
         <Outlet />
       </QueryClientProvider>
