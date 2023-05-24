@@ -13,7 +13,7 @@
 - Timeago.js
 
 # 목표
-할머니께서 아침잠이 없으셔서 일찍 일어나셨을 때 적적하게 보내지 마시고 트로트나 유튜브 영상 보시라고 만들게 되었습니다.
+할머니께서 아침잠이 없으셔서 일찍 일어나셨을 때 적적하게 보내지 마시고 트로트 및 유튜브 영상 보시라고 만들게 되었습니다.
 1. Youtube Api를 사용해서 영상 가져오기, 재생하기
 2. 미스터 트롯에 대한 영상들로 홈화면을 가득 채우기
 3. 보기 쉽고, 이해하기 쉽고, 터치하기 쉬운 큼직한 UI
@@ -27,8 +27,7 @@
 # 스크린샷
 ## Full
 ### Home
-![image](https://user-images.githubusercontent.com/70611956/219988014-3612b5dc-1335-42e7-9749-c33d08c645f7.png)
-
+![image](https://github.com/Sunflo-H/trotube/assets/70611956/52cf4692-c1e5-406a-8c3b-13b4339577ed)
 ### Video Detail
 ![image](https://user-images.githubusercontent.com/70611956/219988244-f737c311-75d2-4eb3-acf6-9aa5ae5a598d.png)
 
