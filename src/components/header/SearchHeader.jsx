@@ -27,7 +27,7 @@ export default function SearchHeader() {
       <Link className="flex items-center cursor-pointer ml-4 z-10" to="/">
         <BsYoutube className="text-youtube-red text-3xl mr-1 mt-1" />
         <div className="flex text-2xl font-bold rounded-xl p-1">
-          <div className="">You</div>
+          <div className="">Tro</div>
           <div className="">tube</div>
         </div>
       </Link>
