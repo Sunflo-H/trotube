@@ -30,8 +30,7 @@ export default function Videos({ round, count }) {
     );
   }
 
-  // 라운드가 있다면 라운드별 비디오 목록을 보여준다.
-
+  // 키워드 대신 라운드가 있다면 라운드별 비디오 목록을 보여준다.
   return (
     <div>
       <div className="">

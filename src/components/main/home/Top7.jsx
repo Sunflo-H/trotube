@@ -26,7 +26,7 @@ export default function Top7() {
   );
 }
 
-async function getMember({ queryKey }) {
+async function getMember() {
   const { data } = await axios.get("/data/mrtrot1/member.json");
 
   return data;

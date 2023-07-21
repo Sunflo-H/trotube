@@ -24,6 +24,7 @@ export default function SearchHeader() {
 
   return (
     <div className=" flex items-center py-8 ">
+      {/* 로고 */}
       <Link className="flex items-center cursor-pointer ml-4 z-10" to="/">
         <BsYoutube className="text-youtube-red text-3xl mr-1 mt-1" />
         <div className="flex text-2xl font-bold rounded-xl p-1">
@@ -31,6 +32,8 @@ export default function SearchHeader() {
           <div className="">tube</div>
         </div>
       </Link>
+
+      {/* 검색창 */}
       <form className=" flex justify-center w-full " onSubmit={handleSubmit}>
         <input
           className="w-full w-1/2 lg:w-2/5 min-w-30 px-6 border outline-none rounded-l-full"
