@@ -7,10 +7,10 @@ import VideoCard from "./VideoCard";
 /**
  * 검색, 라운드, Top7에 대한 비디오를 조건에 따라 보여주는 컴포넌트.
  */
-export default function Videos({ round, count }) {
+export default function Videos({ round, maxVideosOnHomePage }) {
   const { keyword } = useParams();
 
-  const { data: videos } = useQuery({
+  let { data: videos } = useQuery({
     queryKey: ["videos", keyword, round],
     queryFn,
   });
@@ -20,7 +20,7 @@ export default function Videos({ round, count }) {
     return (
       <div>
         {videos && (
-          <ul className="grid gap-4 max-w-screen-2xl grid-cols-1 m-4 md:grid-cols-2  lg:grid-cols-3  xl:grid-cols-4 2xl:grid-cols-5 ">
+          <ul className="grid gap-4 max-w-screen-2xl grid-cols-1 m-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 ">
             {videos.map((video) => (
               <VideoCard video={video} key={video.id} />
             ))}
@@ -31,18 +31,16 @@ export default function Videos({ round, count }) {
   }
 
   // 키워드 대신 라운드가 있다면 라운드별 비디오 목록을 보여준다.
+
   return (
     <div>
       <div className="">
         {videos && (
-          <ul className="grid gap-4 max-w-screen-2xl grid-cols-1 m-4 md:grid-cols-2  lg:grid-cols-3  xl:grid-cols-4 2xl:grid-cols-5 ">
-            {videos.map((video, index) =>
-              index > count ? (
-                ""
-              ) : (
-                <VideoCard video={video[0]} key={video[0].id} />
-              )
-            )}
+          <ul className="grid gap-4 max-w-screen-2xl grid-cols-1 m-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 ">
+            {videos.slice(0, maxVideosOnHomePage).map((video) => {
+              const videoData = video[0];
+              return <VideoCard video={videoData} key={videoData.id} />;
+            })}
           </ul>
         )}
       </div>
