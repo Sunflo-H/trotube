@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function RelatedVideoCard({ video }) {
   const { channelTitle, publishedAt, title, thumbnails } = video.snippet;
 
+  // console.log(channelTitle, publishedAt, title, thumbnails);
   const navigate = useNavigate();
 
   const handleClick = () => {
