@@ -11,13 +11,24 @@ export default function VideoDetail() {
   const {
     state: { video },
   } = useLocation();
-
-  const { data: realVideos } = useQuery({
-    queryKey: ["realVideos", video.id],
-    queryFn: getRealVideos,
-  });
-
   const { channelId, description, title } = video.snippet;
+
+  const getRelatedVideos = async ({ queryKey }) => {
+    const key = process.env.REACT_APP_YOUTUBE_API_KEY;
+    // 지금은 사라진 연관동영상리스트 url (혹시 몰라서 남겨둡니다.)
+    // const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${queryKey[1]}&type=video&maxResults=10&key=${key}`;
+    const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=21&q=${title}&key=${key}`;
+    const { data } = await axios.get(url);
+    const result = data.items
+      .map((item) => ({ ...item, id: item.id.videoId }))
+      .filter((item, i) => i !== 0);
+    return result;
+  };
+
+  const { data: relatedVideos } = useQuery({
+    queryKey: ["relatedVideos", video.id],
+    queryFn: getRelatedVideos,
+  });
 
   // 새 비디오디테일 페이지로 이동했을때 show state를 초기화한다.
   useEffect(() => {
@@ -64,16 +75,9 @@ export default function VideoDetail() {
           </div>
         </section>
         <section className="basis-3/12 px-2">
-          {/* {relatedVideos && (
+          {relatedVideos && (
             <ul>
-              {relatedVideos.items.map((video) => (
-                <RelatedVideoCard video={video} key={video.id} />
-              ))}
-            </ul>
-          )} */}
-          {realVideos && (
-            <ul>
-              {realVideos.map((video) => (
+              {relatedVideos.map((video) => (
                 <RelatedVideoCard video={video} key={video.id} />
               ))}
             </ul>
@@ -83,27 +87,3 @@ export default function VideoDetail() {
     </div>
   );
 }
-
-const getRelatedVideos = async ({ queryKey }) => {
-  const url = `/data/related.json`;
-
-  const { data } = await axios.get(url);
-
-  // item의 형식을 일치시키는 코드
-  data.items.map((item) => {
-    item.id = item.id.videoId;
-    return item;
-  });
-
-  const result = { items: data.items, nextPageToken: data.nextPageToken };
-
-  return result;
-};
-
-const getRealVideos = async ({ queryKey }) => {
-  const key = process.env.REACT_APP_YOUTUBE_API_KEY;
-  const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${queryKey[1]}&type=video&maxResults=10&key=${key}`;
-  const { data } = await axios.get(url);
-  const result = data.items.map((item) => ({ ...item, id: item.id.videoId }));
-  return result;
-};
