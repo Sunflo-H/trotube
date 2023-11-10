@@ -10,7 +10,7 @@ export default function HomeVideos({ round }) {
     queryKey: ["videos", round],
     queryFn,
   });
-  const roundNoSpace = round.replace(" ", "");
+  const roundStr_noSpace = round.replace(" ", "");
   const handleClick = () => {
     navigate(`/videos/round/${round}`, { state: videos });
   };
@@ -21,7 +21,7 @@ export default function HomeVideos({ round }) {
         <div className="text-2xl font-semibold">{round}</div>
         <div className="hidden lg:block opacity-90 ml-auto">더보기</div>
       </div>
-      <Videos round={roundNoSpace} count={4} />
+      <Videos round={roundStr_noSpace} maxVideosOnHomePage={5} />
     </div>
   );
 }
