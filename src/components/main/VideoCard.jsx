@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { format, render, cancel, register } from "timeago.js";
 
 export default function VideoCard({ video }) {
-  // console.log(video);
   const { channelTitle, publishedAt, title, thumbnails } = video.snippet;
   const navigate = useNavigate();
 
