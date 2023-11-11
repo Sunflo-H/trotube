@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
-import Converter from "../../utils/converter";
+import Converter from "../../../utils/converter";
 
 export default function Channel({ channelId }) {
   const { data: channel } = useQuery({

@@ -2,9 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Videos from "../Videos";
+import Videos from "../../../common/videos/Videos";
 
-export default function HomeVideos({ round }) {
+export default function RoundVideos_sample({ round }) {
   const navigate = useNavigate();
   const { data: videos } = useQuery({
     queryKey: ["videos", round],

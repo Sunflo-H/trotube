@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import VideoCard from "../components/main/VideoCard";
-import Videos from "../components/main/Videos";
+import VideoCard from "../components/common/videos/VideoCard";
+import Videos from "../components/common/videos/Videos";
 
 export default function Top7Videos() {
   const {

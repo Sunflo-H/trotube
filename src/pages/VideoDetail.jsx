@@ -2,9 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
-import Channel from "../components/main/Channel";
-import Description from "../components/main/Description";
-import RelatedVideoCard from "../components/main/RelatedVideoCard";
+import Channel from "../components/main/VideoDetailPage/Channel";
+import Description from "../components/main/VideoDetailPage/Description";
+import RelatedVideoCard from "../components/main/VideoDetailPage/RelatedVideoCard";
 
 export default function VideoDetail() {
   const [show, setShow] = useState(false);
