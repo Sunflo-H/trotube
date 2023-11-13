@@ -13,6 +13,7 @@ export default function Round({ round }) {
   const roundStr_noSpace = round.replace(" ", "");
   const handleClick = () => {
     navigate(`/videos/round/${round}`, { state: videos });
+    window.scrollTo(0, 0);
   };
 
   return (
