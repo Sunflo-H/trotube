@@ -1,7 +1,7 @@
 import React from "react";
 import Top7 from "../components/main/HomePage/Top7/Top7";
-import RoundBtn from "../components/main/HomePage/Round/RoundBtn";
-import RoundVideos_sample from "../components/main/HomePage/Round/RoundVideos_sample";
+import Round from "../components/main/HomePage/Round/Round";
+import Round_underMd from "../components/main/HomePage/Round/Round_underMd";
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
       {/* md 이상일 때 보여질 라운드별 영상 컨텐츠*/}
       <div className="hidden md:block">
         {roundList.map((round, index) => (
-          <RoundVideos_sample round={round} key={index} />
+          <Round round={round} key={index} />
         ))}
       </div>
 
@@ -20,7 +20,7 @@ export default function Home() {
         <p className="text-2xl font-bold">라운드별 모아보기</p>
         <ul className="flex flex-wrap  md:w-auto mt-4 gap-4 font-bold text-gray-900 justify-center ">
           {roundList.map((round, index) => (
-            <RoundBtn round={round} key={index} />
+            <Round_underMd round={round} key={index} />
           ))}
         </ul>
       </div>

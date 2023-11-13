@@ -1,5 +1,4 @@
 import React from "react";
-import Videos from "../components/common/videos/Videos";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import VideoCard from "../components/common/videos/VideoCard";
@@ -12,7 +11,7 @@ export default function SearchVideos() {
     queryKey: ["videos", keyword],
     queryFn,
   });
-  console.log(videos);
+
   return (
     <div>
       {videos && (

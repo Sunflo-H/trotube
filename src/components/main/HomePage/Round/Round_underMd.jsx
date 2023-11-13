@@ -3,7 +3,7 @@ import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function RoundBtn({ round }) {
+export default function Round_underMd({ round }) {
   let str = round;
   let str1, str2;
   if (str !== "준결승전" && str !== "결승전") {
