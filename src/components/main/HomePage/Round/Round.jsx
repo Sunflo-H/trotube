@@ -2,15 +2,17 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Videos from "./RoundVideos_sample";
+import RoundVideos_sample from "./RoundVideos_sample";
 
 export default function Round({ round }) {
   const navigate = useNavigate();
+  const roundStr_noSpace = round.replace(" ", "");
+
   const { data: videos } = useQuery({
-    queryKey: ["videos", round],
+    queryKey: ["roundVideos", roundStr_noSpace],
     queryFn,
   });
-  const roundStr_noSpace = round.replace(" ", "");
+
   const handleClick = () => {
     navigate(`/videos/round/${round}`, { state: videos });
     window.scrollTo(0, 0);
@@ -22,13 +24,13 @@ export default function Round({ round }) {
         <div className="text-2xl font-semibold">{round}</div>
         <div className="hidden lg:block opacity-90 ml-auto">더보기</div>
       </div>
-      <Videos round={roundStr_noSpace} maxVideosOnHomePage={5} />
+      <RoundVideos_sample round={roundStr_noSpace} maxVideosOnHomePage={5} />
     </div>
   );
 }
 
 const queryFn = async ({ queryKey }) => {
-  let round = queryKey[1].replace(" ", "");
+  let round = queryKey[1];
   const url = `/data/mrtrot1/${round}.json`;
   const { data } = await axios.get(url);
   const result = data.map((data) => data.items[0]);
