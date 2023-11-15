@@ -24,7 +24,7 @@ export default function Round({ round }) {
         <div className="text-2xl font-semibold">{round}</div>
         <div className="hidden lg:block opacity-90 ml-auto">더보기</div>
       </div>
-      <RoundVideos_sample round={roundStr_noSpace} maxVideosOnHomePage={5} />
+      <RoundVideos_sample round={roundStr_noSpace} sampleCount={5} />
     </div>
   );
 }

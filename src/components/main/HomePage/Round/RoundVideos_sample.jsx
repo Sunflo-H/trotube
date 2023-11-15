@@ -3,7 +3,7 @@ import axios from "axios";
 import React from "react";
 import VideoCard from "../../../common/videos/VideoCard";
 
-export default function RoundVideos_sample({ round, maxVideosOnHomePage }) {
+export default function RoundVideos_sample({ round, sampleCount }) {
   let { data: videos } = useQuery({
     queryKey: ["videos", round],
     queryFn,
@@ -14,7 +14,7 @@ export default function RoundVideos_sample({ round, maxVideosOnHomePage }) {
       <div className="">
         {videos && (
           <ul className="grid gap-4 max-w-screen-2xl grid-cols-1 m-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 ">
-            {videos.slice(0, maxVideosOnHomePage).map((video) => {
+            {videos.slice(0, sampleCount).map((video) => {
               const videoData = video[0];
               return <VideoCard video={videoData} key={videoData.id} />;
             })}

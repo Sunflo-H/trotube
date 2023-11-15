@@ -35,7 +35,7 @@ const queryFn = async ({ queryKey }) => {
       item.id = item.id.videoId;
       return item;
     })
-    .filter((item) => item.id !== undefined); // id 가 undefined인 것들로 인해 key props 에러가 발생합니다. 이를 해결하는 코드입니다.
+    .filter((item) => item.id !== undefined); // id 가 undefined인 것들로 인해 key props 에러가 발생합니다. 이 동영상들은 제외 합니다.
 
   return result;
 };
