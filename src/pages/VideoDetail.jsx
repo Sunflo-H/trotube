@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import Channel from "../components/main/VideoDetailPage/Channel";
 import Description from "../components/main/VideoDetailPage/Description";
 import RelatedVideoCard from "../components/main/VideoDetailPage/RelatedVideoCard";
+import { getRelatedVideos } from "../queryFn/youtubeQueries";
 
 export default function VideoDetail() {
   const [show, setShow] = useState(false);
@@ -12,21 +13,9 @@ export default function VideoDetail() {
     state: { video },
   } = useLocation();
   const { channelId, description, title } = video.snippet;
-  console.log(title);
-  const getRelatedVideos = async ({ queryKey }) => {
-    const key = process.env.REACT_APP_YOUTUBE_API_KEY;
-    // 지금은 사라진 연관동영상리스트 url (혹시 몰라서 남겨둡니다.)
-    // const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${queryKey[1]}&type=video&maxResults=10&key=${key}`;
-    const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=21&q=${title}&key=${key}`;
-    const { data } = await axios.get(url);
-    const result = data.items
-      .map((item) => ({ ...item, id: item.id.videoId }))
-      .filter((item, i) => i !== 0);
-    return result;
-  };
 
   const { data: relatedVideos } = useQuery({
-    queryKey: ["relatedVideos", video.id],
+    queryKey: ["relatedVideos", video.id, title],
     queryFn: getRelatedVideos,
   });
 

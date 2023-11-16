@@ -3,6 +3,14 @@ import Top7 from "../components/main/HomePage/Top7/Top7";
 import Round from "../components/main/HomePage/Round/Round";
 import Round_underMd from "../components/main/HomePage/Round/Round_underMd";
 
+const roundList = [
+  `본선 1차전`,
+  `본선 2차전`,
+  `본선 3차전`,
+  `준결승전`,
+  `결승전`,
+];
+
 export default function Home() {
   return (
     <div className=" relative w-full h-full px-4 ">
@@ -30,11 +38,3 @@ export default function Home() {
     </div>
   );
 }
-
-const roundList = [
-  `본선 1차전`,
-  `본선 2차전`,
-  `본선 3차전`,
-  `준결승전`,
-  `결승전`,
-];

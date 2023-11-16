@@ -9,6 +9,7 @@ export default function Top7Card({ member }) {
       state: { member },
     });
   };
+
   return (
     <li
       className={`${rank}  sm:w-full sm:h-full rounded-2xl lg:rounded-none top7 cursor-pointer`}

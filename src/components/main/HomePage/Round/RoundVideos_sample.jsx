@@ -3,20 +3,16 @@ import axios from "axios";
 import React from "react";
 import VideoCard from "../../../common/videos/VideoCard";
 
-export default function RoundVideos_sample({ round, sampleCount }) {
-  let { data: videos } = useQuery({
-    queryKey: ["videos", round],
-    queryFn,
-  });
+const MAX_SAMPLE_COUNT = 5;
 
+export default function RoundVideos_sample({ videos }) {
   return (
     <div>
       <div className="">
         {videos && (
           <ul className="grid gap-4 max-w-screen-2xl grid-cols-1 m-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 ">
-            {videos.slice(0, sampleCount).map((video) => {
-              const videoData = video[0];
-              return <VideoCard video={videoData} key={videoData.id} />;
+            {videos.slice(0, MAX_SAMPLE_COUNT).map((video) => {
+              return <VideoCard video={video} key={video.id} />;
             })}
           </ul>
         )}
@@ -24,12 +20,3 @@ export default function RoundVideos_sample({ round, sampleCount }) {
     </div>
   );
 }
-
-const queryFn = async ({ queryKey }) => {
-  let round = queryKey[1];
-  const url = `/data/mrtrot1/${round}.json`;
-  const { data } = await axios.get(url);
-  let result = data.map((item) => item.items);
-
-  return result;
-};

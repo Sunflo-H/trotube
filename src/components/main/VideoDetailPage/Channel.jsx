@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
 import Converter from "../../../utils/converter";
+import { getChannel } from "../../../queryFn/youtubeQueries";
 
 export default function Channel({ channelId }) {
   const { data: channel } = useQuery({
@@ -31,13 +32,3 @@ export default function Channel({ channelId }) {
     </div>
   );
 }
-
-const getChannel = async ({ queryKey }) => {
-  const key = process.env.REACT_APP_YOUTUBE_API_KEY;
-  // const url = `/data/channel.json`;
-  const url = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${queryKey[1]}&key=${key}`;
-
-  const { data } = await axios.get(url);
-
-  return data.items[0];
-};

@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import React from "react";
 import Top7Card from "./Top7Card";
+import { getMember } from "../../../../queryFn/trotQueries";
 
 export default function Top7() {
   const { data: members } = useQuery({
@@ -24,10 +24,4 @@ export default function Top7() {
       )}
     </>
   );
-}
-
-async function getMember() {
-  const { data } = await axios.get("/data/mrtrot1/member.json");
-
-  return data;
 }
