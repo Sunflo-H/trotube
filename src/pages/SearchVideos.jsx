@@ -2,7 +2,6 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import VideoCard from "../components/common/videos/VideoCard";
-import axios from "axios";
 import { getSearchVideos } from "../queryFn/youtubeQueries";
 
 export default function SearchVideos() {

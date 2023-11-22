@@ -4,7 +4,8 @@ import SearchHeader from "./components/header/SearchHeader";
 
 function App() {
   const queryClient = new QueryClient();
-  localStorage.setItem("name", "hbj");
+  // localStorage.setItem("name", "hbj");
+
   return (
     <>
       <SearchHeader />

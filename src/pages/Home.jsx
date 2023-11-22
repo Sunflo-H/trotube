@@ -2,16 +2,40 @@ import React from "react";
 import Top7 from "../components/main/HomePage/Top7/Top7";
 import Round from "../components/main/HomePage/Round/Round";
 import Round_underMd from "../components/main/HomePage/Round/Round_underMd";
-
-const roundList = [
-  `본선 1차전`,
-  `본선 2차전`,
-  `본선 3차전`,
-  `준결승전`,
-  `결승전`,
-];
+import { useEffect } from "react";
+import { useState } from "react";
 
 export default function Home() {
+  const [isScrolling, setIsScrolling] = useState(false);
+  const [roundList, setRoundList] = useState([
+    `본선 1차전`,
+    `본선 2차전`,
+    `본선 3차전`,
+    `준결승전`,
+    `결승전`,
+  ]);
+  const handleInfinityScroll = () => {
+    if (isScrolling) return;
+    const clientHeight = document.documentElement.clientHeight;
+    const scrollHeight = document.documentElement.scrollHeight;
+    const scrollTop = document.documentElement.scrollTop;
+
+    if ((scrollTop + clientHeight) / scrollHeight >= 0.8) {
+      setIsScrolling(true); // 스크롤 중 상태로 설정
+
+      setRoundList((prevRoundList) => [...prevRoundList, "결승전"]);
+
+      setIsScrolling(false); // 스크롤 완료 후 상태 변경
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleInfinityScroll);
+    return () => {
+      window.removeEventListener("scroll", handleInfinityScroll);
+    };
+  }, []);
+
   return (
     <div className=" relative w-full h-full px-4 ">
       <Top7 />
