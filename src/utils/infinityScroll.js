@@ -17,23 +17,14 @@ import { useState } from "react";
 //   }
 // };
 
-export const getData = async (keyword, nextPageToken) => {
-  const key = process.env.REACT_APP_YOUTUBE_API_KEY;
-  const SEARCH_RESULT_COUNT = 20;
-  const url = nextPageToken
-    ? `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=${SEARCH_RESULT_COUNT}&q=${keyword}&pageToken=${nextPageToken}&key=${key}`
-    : `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=${SEARCH_RESULT_COUNT}&q=${keyword}&key=${key}`;
-  const { data } = await axios.get(url);
-  console.log(url);
-  let newNextPageToken = data.nextPageToken;
-
-  let videos = data.items
-    .map((item) => {
-      item.id = item.id.videoId;
-      return item;
-    })
-    .filter((item) => item.id !== undefined); // id 가 undefined인 것들로 인해 key props 에러가 발생합니다. 이 동영상들은 제외 합니다.
-
-  console.log(videos);
-  return { videos, newNextPageToken };
-};
+/**
+ * * 무한 스크롤과 그에 따른 검색 기능
+ *
+ * 필요한 변수
+ * 검색 키워드, nextPageToken
+ *
+ * (keyword, null) fetch -> data 를 배열에 저장후 배열을 렌더링
+ * -> 새 token 저장
+ * (keyword, nextPageToken) fetch -> data 를 배열에 추가 후 배열을 렌더링
+ * -> 새 token 저장
+ */
