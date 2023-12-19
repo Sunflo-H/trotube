@@ -2,20 +2,23 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
-import { useRef } from "react";
 import axios from "axios";
 import VideoCard from "../components/common/videos/VideoCard";
-// import { fetchSearchData } from "../utils/infinityScroll";
+import { useSelector } from "react-redux";
 
 export default function SearchVideos() {
-  const { keyword } = useParams();
   const [videoList, setVideoList] = useState([]);
   const [nextPageToken, setNextPageToken] = useState(null);
-  const [requireFetch, setRequireFetch] = useState(true);
+  const [requireFetch, setRequireFetch] = useState(false);
+  const { keyword } = useParams();
+
+  useEffect(() => {
+    getVideos();
+  }, [keyword]);
 
   useEffect(() => {
     if (requireFetch) {
-      fetchData();
+      getMoreVideos();
       setRequireFetch(false);
     }
   }, [requireFetch]);
@@ -30,8 +33,9 @@ export default function SearchVideos() {
     }
   }
 
-  async function fetchData() {
-    const data = await fetchSearchData(keyword, nextPageToken);
+  async function getMoreVideos() {
+    const data = await fetchYoutubeData(keyword, nextPageToken);
+
     setVideoList((prevVideoList) => {
       // 영상이 중복되는 경우가 있습니다.
       // 중복되는 영상을 제거하는 코드입니다.
@@ -39,6 +43,14 @@ export default function SearchVideos() {
       let uniqueVideoList = new Set(jsonVideoList);
       return [...uniqueVideoList].map(JSON.parse);
     });
+
+    setNextPageToken(data.nextPageToken);
+  }
+
+  async function getVideos() {
+    const data = await fetchYoutubeData(keyword, nextPageToken);
+
+    setVideoList(data.videos);
     setNextPageToken(data.nextPageToken);
   }
 
@@ -81,7 +93,7 @@ function debounce(func, delay) {
   };
 }
 
-const fetchSearchData = async (keyword, nextPageToken) => {
+const fetchYoutubeData = async (keyword, nextPageToken) => {
   const key = process.env.REACT_APP_YOUTUBE_API_KEY;
   const SEARCH_RESULT_COUNT = 20;
   const url = nextPageToken
@@ -99,33 +111,34 @@ const fetchSearchData = async (keyword, nextPageToken) => {
   return { videos, nextPageToken: data.nextPageToken };
 };
 
-const fetchMocData = async (keyword, nextPageToken) => {
-  console.log(`fetchMocData 에서 사용된 token : ${nextPageToken}`);
-  let url;
-  switch (nextPageToken) {
-    case "CBQQAA":
-      url = `/data/moc2.json`;
-      break;
-    case "CCgQAA":
-      url = `/data/moc3.json`;
-      break;
-    case "CDwQAA":
-      url = `/data/moc4.json`;
-      break;
-    default:
-      url = `/data/moc1.json`;
-      break;
-  }
+//! 목데이터
+// const fetchMocData = async (keyword, nextPageToken) => {
+//   console.log(`fetchMocData 에서 사용된 token : ${nextPageToken}`);
+//   let url;
+//   switch (nextPageToken) {
+//     case "CBQQAA":
+//       url = `/data/moc2.json`;
+//       break;
+//     case "CCgQAA":
+//       url = `/data/moc3.json`;
+//       break;
+//     case "CDwQAA":
+//       url = `/data/moc4.json`;
+//       break;
+//     default:
+//       url = `/data/moc1.json`;
+//       break;
+//   }
 
-  const { data } = await axios.get(url);
-  let videos = data.items
-    .map((item) => {
-      item.id = item.id.videoId;
-      return item;
-    })
-    .filter((item) => item.id !== undefined); // id 가 undefined인 것들로 인해 key props 에러가 발생합니다. 이 동영상들은 제외 합니다.
+//   const { data } = await axios.get(url);
+//   let videos = data.items
+//     .map((item) => {
+//       item.id = item.id.videoId;
+//       return item;
+//     })
+//     .filter((item) => item.id !== undefined); // id 가 undefined인 것들로 인해 key props 에러가 발생합니다. 이 동영상들은 제외 합니다.
 
-  let result = { videos, nextPageToken: data.nextPageToken };
+//   let result = { videos, nextPageToken: data.nextPageToken };
 
-  return result;
-};
+//   return result;
+// };

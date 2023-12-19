@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
 
-import { BsSearch, BsYoutube, BsList } from "react-icons/bs";
+import { BsSearch, BsYoutube } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { setKeyword } from "../../features/search/searchSlice";
 
 export default function SearchHeader() {
   const navigate = useNavigate();
   const { keyword } = useParams();
   const [text, setText] = useState("");
+  // const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     navigate(`/videos/${text}`);
+    // dispatch(setKeyword(text));
     setText("");
   };
 
