@@ -4,15 +4,14 @@ import Round from "../components/main/HomePage/Round/Round";
 import Round_underMd from "../components/main/HomePage/Round/Round_underMd";
 import { useState } from "react";
 
+const roundList = [
+  `본선 1차전`,
+  `본선 2차전`,
+  `본선 3차전`,
+  `준결승전`,
+  `결승전`,
+];
 export default function Home() {
-  const [roundList, setRoundList] = useState([
-    `본선 1차전`,
-    `본선 2차전`,
-    `본선 3차전`,
-    `준결승전`,
-    `결승전`,
-  ]);
-
   return (
     <div className=" relative w-full h-full px-4 ">
       <Top7 />
