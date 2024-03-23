@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import VideoCard from "../components/common/videos/VideoCard";
 import { useSelector } from "react-redux";
+import Loading from "../UI/Loading";
 
 export default function SearchVideos() {
   const [videoList, setVideoList] = useState([]);
@@ -28,7 +29,7 @@ export default function SearchVideos() {
     const scrollHeight = document.documentElement.scrollHeight;
     const scrollTop = document.documentElement.scrollTop;
 
-    if ((scrollTop + clientHeight) / scrollHeight >= 0.9) {
+    if ((scrollTop + clientHeight) / scrollHeight >= 0.98) {
       setRequireFetch(true);
     }
   }
@@ -71,6 +72,7 @@ export default function SearchVideos() {
           ))}
         </ul>
       )}
+      {requireFetch || <Loading />}
     </div>
   );
 }
