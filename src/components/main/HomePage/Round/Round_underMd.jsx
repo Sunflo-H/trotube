@@ -8,12 +8,13 @@ export default function Round_underMd({ round }) {
 
   const navigate = useNavigate();
   const { data: videos } = useQuery({
-    queryKey: ["videos", roundStr_noSpace],
+    queryKey: ["roundVideos", roundStr_noSpace],
     queryFn: getMember,
   });
 
   const handleClick = () => {
     navigate(`/videos/round/${round}`, { state: videos });
+    window.scrollTo(0, 0);
   };
 
   return (
